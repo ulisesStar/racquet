@@ -1,0 +1,50 @@
+.evento(layout="row" layout-xs="column")
+	md-card.evento-content(flex="50")
+		md-toolbar
+			.md-toolbar-tools
+				h4 Información Básica
+				span(flex)
+				md-button(ng-click="ctrl.eventos.habilitarEdicion()")
+					md-icon(ng-show="!ctrl.infomuestra") edit
+					md-icon(ng-show="ctrl.infomuestra") clear
+		md-card-content
+			.AntesEdicion(ng-show= "!ctrl.infomuestra")
+				h1 Nombre:
+				h3 {{ctrl.eventos.item.nombre}}
+				md-divider
+				h1 Descripción:
+				.infoBasica-content(ng-bind-html="ctrl.eventos.item.descripcion")
+			.DespuesEdicion(ng-show= "ctrl.infomuestra")
+				form.evento-form(ng-submit="ctrl.eventos.editarSalon(ctrl.eventos.item)" layout="column")
+					.info(layout="row" layout-xs="column" layout-align="space-between center")
+						md-input-container(flex)
+							md-icon(md-colors="{color: 'green'}")  &#xE873;
+							label Nombre del Evento
+							input(ng-model="ctrl.eventos.item.nombre")
+					.descripcion-container
+						.titulo(layout="row")
+							md-icon(md-colors="{color: 'green'}") &#xe22b;
+							p Descripción del Evento
+						text-angular(ng-model="ctrl.eventos.item.descripcion")
+					md-button.evento.info(type="submit")
+						md-icon save
+	md-card.salon-container(flex="50")
+		md-toolbar
+			.md-toolbar-tools
+				h4 Salones
+		md-card-content
+			.salon-content
+				form(ng-submit="ctrl.salones.agregarSalon(salon)" layout="row")
+					md-select(ng-model="salon" placeholder="Selecciona un salon" required flex)
+						md-option(ng-value="salon" ng-repeat="salon in ctrl.salones.items") {{salon.nombre}}
+					md-button(type="submit")
+						md-icon add
+			md-virtual-repeat-container#vertical-container
+				.repeated-item(layout="row" md-virtual-repeat='salon in ctrl.salones.agregados' flex)
+					.texto(flex)
+						strong {{salon.nombre}}
+					.botones-container(layout-align="end end")
+						md-button.md-fab.botones(md-colors="{background: 'green'}" ng-click="ctrl.salones.mandarASalon(salon)")
+							md-icon visibility
+						md-button.md-fab.botones(md-colors="{background: 'red'}" ng-click="ctrl.salones.eliminarSalon($index, salon)")
+							md-icon delete

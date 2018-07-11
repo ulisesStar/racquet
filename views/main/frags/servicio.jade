@@ -1,0 +1,22 @@
+.portada-servicio(style="background-image:url({{ctrl.servicio.item.imagenes[0].imagen}})")
+	.texto-experiencia
+		h1 LA MEJOR EXPERIENCIA
+		h4(style="text-decoration: underline; cursor: pointer;" ng-click="ctrl.servicio.mandarAhistoria()") CONOCE NUESTRO CLUB
+.servicio-container
+	.servicio-content
+		.parteSuperior
+			.texto
+				h1 {{ctrl.servicio.item.nombre}}
+				.descripcion(ng-bind-html="ctrl.servicio.item.descripcion")
+			.imagen(style="background-image:url({{ctrl.servicio.item.imagenes[1].imagen}})")
+		.parteInferior
+			.instructores
+				h3 Instructores
+				md-grid-list(md-cols="4" md-row-height="150px" md-gutter-gt-md='16px' md-gutter-md='8px' md-gutter='4px')
+					md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="instructor in ctrl.servicio.item.instructores")
+						.capa
+						.imagen(style="background-image:url({{instructor.imagen}}); width: 100%; height : 100%;")
+						.ir
+							md-button(ng-click="ctrl.servicio.mandarAinstructores()")
+								span Ver
+								md-icon arrow_right_alt

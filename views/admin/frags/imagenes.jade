@@ -1,0 +1,24 @@
+.imagenes
+	md-card.imagenes-container
+		md-toolbar
+			.md-toolbar-tools
+				h4 Sube tus imagenes
+		md-card-content.imagenes-content
+			.cargarImagenes(layout="row" layout-xs="column" layout-sm="column" layout-md="column")
+				form.imagen(ng-submit="ctrl.imagenes.guardarImagen(imagen)" flex="50")
+					.imagen-container(layout-align="center center")
+						.dropify-container(ng-init="Dropify()" flex)
+							input.dropify(type="file" data-default-file="Imagen" ng-model="imagen" base-sixty-four-input maxsize="54836" data-max-file-size="9000K" accept="image/*" style="padding:0px;")
+					md-button.imagen-button(type="submit" flex ng-show="ctrl.mostrar===true")
+						md-icon save
+				.selecciona(flex="50" layout="column")
+						md-select(ng-model="opcion" placeholder="Selecciona una opción" required)
+							md-option(ng-value="opcion" ng-repeat="opcion in ctrl.imagenes.opciones" ng-click="ctrl.imagenes.obtieneDatos(opcion)") {{opcion.nombre}}
+
+						md-select(ng-model="dato" placeholder="Selecciona una opción" required)
+							md-option(ng-value="dato" ng-repeat="dato in ctrl.imagenes.datos" ng-click="ctrl.imagenes.guardarDatos(dato)") {{dato.nombre}}
+			md-grid-list(md-cols="4" md-row-height="150px")
+				md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="imagen in ctrl.imagenes.obtenerImagenesXmodulo" style="background-image:url({{imagen.imagen}})")
+					md-grid-tile-footer(layout-align="center center")
+						md-button(ng-click="ctrl.imagenes.eliminarImagen(imagen.id,$index)")
+							md-icon delete

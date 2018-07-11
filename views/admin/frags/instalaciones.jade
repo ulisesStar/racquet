@@ -1,0 +1,35 @@
+md-card
+	md-card-content(layout="row")
+		md-icon search
+		md-autocomplete(
+		flex
+		md-selected-item="ctrl.selectedInstalacion" 
+		md-search-text-change="ctrl.BuscarInstalacionChange(ctrl.searchTextInstalacion)" 
+		md-search-text="ctrl.searchTextInstalacion" 
+		md-selected-item-change="ctrl.InstalacionSeleccionadoChange(item)" 
+		md-items="item in instalaciones" 
+		md-item-text="item.nombre" 
+		md-min-length="0" 
+		placeholder="Nombre de la Instalacion" 
+		md-menu-class="autocomplete-custom-template")
+			md-item-template
+				span {{item.nombre}}
+		md-button.md-raised(md-colors="{background: 'green'}" ng-click="ctrl.instalaciones.nuevo()")
+			md-icon add
+	md-divider
+	md-list
+		md-list-item(ng-repeat="instalacion in ctrl.instalaciones.items | filter : ctrl.searchTextInstalacion")
+			.md-list-item-text
+				strong {{instalacion.nombre}}
+			md-fab-toolbar(md-open="false" count="0"  md-direction="left" flex)
+				md-fab-trigger
+					md-button
+						md-icon more_vert
+				md-toolbar
+					md-fab-actions(layout="row")
+						md-button(md-colors="{background: 'green'}" ui-sref="instalacion({id:instalacion.id})")
+							md-icon edit
+						md-button(md-colors="{background: 'red'}" ng-click="instalacion.eliminar($index)")
+							md-icon delete
+			md-divider
+		cl-paging(cl-pages="ctrl.instalaciones.paginas" cl-steps="4" cl-page-changed="ctrl.instalaciones.cambioPagina()" cl-align="start start" cl-current-page="ctrl.instalaciones.pagina")

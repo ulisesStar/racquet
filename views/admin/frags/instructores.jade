@@ -1,0 +1,35 @@
+md-card
+	md-card-content(layout="row")
+		md-icon search
+		md-autocomplete(
+		flex
+		md-selected-item="ctrl.selectedInstructor" 
+		md-search-text-change="ctrl.BuscarInstructorChange(ctrl.searchTextInstructor)" 
+		md-search-text="ctrl.searchTextInstructor" 
+		md-selected-item-change="ctrl.InstructorSeleccionadoChange(item)" 
+		md-items="item in instructores" 
+		md-item-text="item.nombre" 
+		md-min-length="0" 
+		placeholder="Nombre del Instructor" 
+		md-menu-class="autocomplete-custom-template")
+			md-item-template
+				span {{item.nombre}}
+		md-button.md-raised(md-colors="{background: 'green'}" ng-click="ctrl.instructores.nuevo()")
+			md-icon add
+	md-divider
+	md-list
+		md-list-item(ng-repeat="instructor in ctrl.instructores.items | filter : ctrl.searchTextInstructor")
+			.md-list-item-text
+				strong {{instructor.nombre}}
+			md-fab-toolbar(md-open="false" count="0"  md-direction="left" flex)
+				md-fab-trigger
+					md-button
+						md-icon more_vert
+				md-toolbar
+					md-fab-actions(layout="row")
+						md-button(md-colors="{background: 'green'}" ui-sref="instructor({id:instructor.id})")
+							md-icon edit
+						md-button(md-colors="{background: 'red'}" ng-click="instructor.eliminar($index)")
+							md-icon delete
+			md-divider
+		cl-paging(cl-pages="ctrl.instructores.paginas" cl-steps="4" cl-page-changed="ctrl.instructores.cambioPagina()" cl-align="start start" cl-current-page="ctrl.instructores.pagina")

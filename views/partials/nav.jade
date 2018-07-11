@@ -1,0 +1,20 @@
+.nav
+	.nav-content
+		.menu
+			md-button.menu(ng-click="toggleLeft()")
+				md-icon(style="color: white;") menu
+			img.logo(src="img/logo.png" ng-click="mandaAhome()")
+			//-h3(ng-click="mandaAhome()") RAQUET CLUB
+		.conoceMas
+			p UNETE AL RAQUET CLUB
+			md-button.boton(style="border: solid 1px white" ng-click="mandarMas('club')" href="#club")
+				| Conoce más
+		.navegacion
+			md-button(ui-sref="instalaciones") Instalaciones
+			md-button(ui-sref="contacto") Contacto
+div.menu-home(layout="row")
+	md-sidenav.md-sidenav-left(md-component-id="left" md-whiteframe="4")
+		md-button(ng-click="toggleLeft()") X
+		md-list
+			md-list-item(ui-sref="{{seccion.state}}" ng-click="toggleLeft()" ng-repeat="seccion in secciones")
+					h4 {{seccion.nombre}}

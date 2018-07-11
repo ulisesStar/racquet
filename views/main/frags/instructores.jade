@@ -1,0 +1,17 @@
+.instructores-container
+	.instructores-content
+		.contenido
+			.texto-instructores(flex="50")
+				p NUESTROS
+				h1 INSTRUCTORES
+				.instructor-detalle
+					h3 {{ctrl.instructores.item.nombre}}
+					.descripcion(ng-bind-html="ctrl.instructores.item.descripcion")
+			.imagenes-instructores(flex="50")
+				md-grid-list(md-cols="3" md-row-height="170px" md-gutter-gt-md='10px' md-gutter-md='4px' md-gutter='4px')
+					md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="instructor in ctrl.instructores.items")
+						.capa
+						.imagen(style="background-image:url({{instructor.imagen.imagen}}); width: 100%; height : 100%;" ng-click="ctrl.instructores.mandarInfo(instructor)")
+						md-grid-tile-footer(layout-align="center center" ng-click="ctrl.instructores.mandarInfo(instructor)")
+							p {{instructor.nombre}}
+						

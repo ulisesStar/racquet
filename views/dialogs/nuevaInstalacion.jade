@@ -1,0 +1,14 @@
+md-dialog
+	md-toolbar
+		.md-toolbar-tools
+			h4 Nueva Instalación
+			span(flex)
+			md-button(ng-click="close()")
+				md-icon clear
+	form.md-padding(layout="row" ng-submit="submit(instalacion)")
+		md-input-container(flex)
+			label Nombre de la Instalacion
+			input(ng-model="instalacion.nombre" required)
+		md-button.md-raised(type="submit")
+			md-icon save
+

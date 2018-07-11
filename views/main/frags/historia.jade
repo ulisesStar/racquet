@@ -1,0 +1,17 @@
+.historia-container
+	.historia-content
+		.parteSuperior
+			.texto-container(layout="column")
+				.texto
+					p NUESTRA
+					h1 HISTORIA
+				.descripcion
+					p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis iure, animi quod voluptas quas magnam magni, non omnis inventore, nam dolorem natus. Blanditiis cum, aperiam nam repellat earum, iure totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis iure, animi quod voluptas quas magnam magni, non omnis inventore, nam dolorem natus. Blanditiis cum, aperiam nam repellat earum, iure totam.
+			.imagen-container
+				.imagen(style="background-image: url('img/historia.png')")
+
+		.Fundadores
+			h1 Nuestros Fundadores
+			.slider
+				.imagenes(ng-repeat="fundador in ctrl.fundadores")
+					img(src="{{fundador.imagen}}")

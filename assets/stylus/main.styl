@@ -1,0 +1,965 @@
+mobile = "(max-width: 800px)"
+verde = #3a512b
+footerColor=#8e2e2e
+rojo = #8e2f2e
+
+transition(duracion, delay)
+	-webkit-transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+	transition all duracion cubic-bezier(0.445, 0.050, 0.550, 0.950)
+	-webkit-transition-delay delay ease-in-out
+	transition-delay delay ease-in-out
+
+animation(animation, duration = 1s, delay = 0s)
+	-webkit-animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+	animation animation duration cubic-bezier(0.445, 0.050, 0.550, 0.950)
+	-webkit-transition all duration ease-in-out
+	-moz-transition all duration ease-in-out
+	-o-transition all duration ease-in-out
+	transition all duration ease-in-out
+	-webkit-transition-delay delay ease-in-out
+	transition-delay delay ease-in-out
+
+@keyframes destello
+	0%
+		width 0%
+		opacity 1
+	60%
+		opacity 1
+	90%
+		width 200%
+
+	100%
+		width 0%
+		opacity 0
+
+*
+	box-sizing border-box
+	font-family Cabin
+
+md-grid-list
+	md-grid-tile
+		background-repeat no-repeat
+		background-size cover
+		background-position center
+
+main
+	position relative
+	min-height 100vh
+	width 100%
+
+
+.nav
+	height 40px
+	position fixed
+	z-index 10
+	width 100%
+	background-color verde
+	.nav-content
+		height 40px
+		display flex
+		flex-direction row
+		justify-content space-between
+		.logo
+			width 124px
+			cursor pointer
+			&:focus
+				outline 0px
+		div
+			display flex
+			justify-content center
+			align-items center
+		.conoceMas
+			.md-button
+				margin 0 15px
+				min-height 30px
+				line-height 30px
+				height 30px
+				padding 0 5px
+		.navegacion
+			.md-button:first-child
+				border-right 1px solid rgba(255, 255, 255, .3)
+		h3
+			color white
+			&:focus
+				outline 0px
+			cursor pointer
+			font-size 1vw
+		p, span
+			color white
+			font-size 12px
+		.md-button .menu
+			height 40px
+			margin 0px
+			border-radius 0px
+			line-height 40px
+
+
+.menu-home
+	md-sidenav
+		display flex
+		position fixed
+		max-width inherit
+		width 100%
+
+footer
+	background-color footerColor
+	.footer
+		display flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		.md-button
+			width 10%
+			img
+				width 100%
+		.secciones-container
+			display flex
+			cursor pointer
+			width 13%
+			justify-content space-between
+			.seccion-uno, .seccion-dos
+				height 10%
+				display flex
+				justify-content center
+				h4
+					margin 2px
+					color white
+					font-size 12px
+					&:focus
+						outline 0px
+		.contactoFooter, .textoFooter
+			p
+				margin 2
+				color white
+				font-size 12px
+			
+		.contactoFooter
+			margin-right 400px
+			.iconos
+				display flex
+				flex-direction row
+				img
+					height 24px
+					width 24px
+.home-container
+	position relative
+	min-height 100vh
+	.home-content
+		position relative
+		margin 10vh 10vw
+		min-height 80vh
+		width 80vw
+		section
+			&.grid-container
+				margin-top 10%
+				min-height 100vh
+				position relative
+				margin-bottom 20vh
+				md-grid-list
+					transform scale(.9) !important
+					md-grid-tile
+						cursor pointer
+						.contenido
+							position relative
+							width 100%
+							height 100%
+							overflow hidden
+							&>*
+								transition(500ms , 0)
+							.capa
+								width 0%
+								height 100%
+								background-color rgba(255, 255, 255, .4)
+								opacity .9
+								position absolute
+								z-index 2
+								transform skew(-50deg, 0)
+								left -50%
+							.imagen
+								background-repeat no-repeat
+								background-size cover
+								background-position center
+
+							md-grid-tile-footer
+								bottom -50px
+								height 80px
+								background-color inherit
+								display flex
+								justify-content flex-start
+								align-items flex-start
+								opacity 0
+								p
+									font-weight 800
+							.ir
+								position absolute
+								bottom 1px
+								width 100%
+								height 30px
+								.md-button
+									min-height 0px
+									height 25px
+									background-color verde
+									margin 0px
+									min-width 0px
+									border-radius 30px
+									display flex
+									justify-content flex-start
+									line-height 25px
+									color white
+									text-transform inherit
+									padding 0 5px
+									margin 0 5px
+
+									md-icon
+										transition(500ms , 0)
+										margin 0px
+										color white
+
+						&:hover
+							.capa
+								animation destello 500ms infinite;
+							.imagen
+								transform scale(1.2)
+							md-grid-tile-footer
+								bottom 0px
+								opacity 1
+								padding 0 10px
+								background-color rgba(0, 0, 0, .2)
+
+
+
+							.ir
+								.md-button
+									md-icon
+										margin-left 10px
+
+			&.club
+				min-height 100vh
+				.texto
+					h1
+						color gray
+						font-size 5vw
+						margin 0
+						font-weight 100
+					p
+						font-size 1.5vw
+						margin 0
+						margin-left 5vw
+					.texto-descripcion
+						p
+							text-align justify
+							padding 10px
+			&.ambiente
+				md-grid-list
+					transform scale(0.9) !important
+				min-height 100vh
+				.texto
+					h1
+						color gray
+						font-size 5vw
+						margin 0
+						font-weight 100
+
+					p
+						font-size 1.5vw
+						margin 0
+						margin-left 5vw
+				md-grid-list
+				transform scale(.9) !important
+				.datos
+					h1
+						color white
+						text-align center
+						margin 0
+						font-size 2.5vw
+					p
+						color white
+						margin 0
+						padding 10px
+						text-align justify
+						font-size 1vw
+
+
+.instalaciones-container
+	position relative
+	min-height 100vh
+	.instalaciones-content
+		position relative
+		margin 10vh 10vw
+		min-height 80vh
+		width 80vw
+		.texto-container
+			margin-top 5vw
+			.texto
+				p
+					margin 0
+					font-size 1vw
+					margin-left 4vw
+				h1
+					color grey
+					font-size 3vw
+					margin 0
+			.descripcion
+				p
+					text-align justify
+					font-size 1vw
+					padding 20px
+					margin-left 3vw
+		.grid-instalaciones
+			width 305%
+			md-grid-list
+				md-grid-tile
+					cursor pointer
+					overflow hidden
+					&:focus
+						outline 0px
+					.capa
+						width 0%
+						height 100%
+						background-color rgba(255, 255, 255, .4)
+						opacity .9
+						position absolute
+						z-index 2
+						transform skew(-50deg, 0)
+						left -50%
+						transition(500ms , 0)
+					.imagen
+						background-repeat no-repeat
+						background-size cover
+						background-position center
+					md-grid-tile-footer
+						bottom -50px
+						height 80px
+						background-color inherit
+						display flex
+						justify-content flex-start
+						align-items flex-start
+						opacity 0
+						transition(500ms , 0)
+					.ir
+						position absolute
+						bottom 1px
+						width 100%
+						height 30px
+						.md-button
+							min-height 0px
+							height 25px
+							background-color verde
+							margin 0px
+							min-width 0px
+							border-radius 30px
+							display flex
+							justify-content flex-start
+							line-height 25px
+							color white
+							text-transform inherit
+							padding 0 5px
+							margin 0 5px
+
+							md-icon
+								transition(500ms , 0)
+								margin 0px
+								color white
+					&:hover
+						.capa
+							animation destello 500ms infinite;
+							transition(500ms , 0)
+						.imagen
+							transform scale(1.2)
+							transition(500ms , 0)
+						md-grid-tile-footer
+							bottom 0px
+							opacity 1
+							padding 0 10px
+							background-color rgba(0, 0, 0, .2)
+							transition(500ms , 0)
+						.ir
+							.md-button
+								md-icon
+									margin-left 10px
+
+.instalacion-container
+	position relative
+	min-height 100vh
+	.instalacion-content
+		position relative
+		margin 10vh 10vw
+		min-height 80vh
+		width 80vw
+		.portada
+			background-position center
+			background-repeat no-repeat
+			background-size cover
+		.titulo
+			position absolute
+			margin auto
+			left 25vw
+			right 0px
+			top 16vh
+			bottom 0px
+
+			h1
+				color white
+				font-size 4vw
+		.informacion-container
+			position relative
+			display flex
+			flex-direction row
+			justify-content center
+			align-items center
+			margin-top 3vh
+			.parteIzquierda
+				position relative
+				width 100%
+				.textoIzquierda
+					h1
+						color grey
+						font-size 5vw
+						margin 0
+					.descripcion
+						width 100%
+
+						p
+							font-size 1.3vw
+							text-align justify
+				.imagenIzquierda
+					height 75vh
+					width 32vw
+					background-position center
+					background-repeat no-repeat
+					background-size cover
+					margin-top 3vh
+			.parteDerecha
+				width 100%
+				position relative
+				display flex
+				flex-direction column
+				align-items flex-end
+				.imagenDerecha
+					height 75vh
+					width 32vw
+					background-position center
+					background-repeat no-repeat
+					background-size cover
+					margin-bottom 2vh
+				.textoDerecha
+					width 90%
+					margin 20px 0
+					h1
+						font-size 2vw
+						margin 0
+						color grey
+					.servicios
+						.md-list-item-text
+							md-icon
+								color rojo
+							p
+								color rojo
+								margin 0
+								font-size 1.4vw
+.portada-servicio
+	height 100vh
+	width 100vw
+	background-repeat  no-repeat
+	background-position center
+	background-size cover
+	.texto-experiencia
+		position absolute
+		top 50vh
+		left 60vw
+		right 0
+		bottom 0
+		h1
+			color white
+			font-size 4vw
+			font-weight 100
+		h4
+			color white
+.servicio-container
+	position relative
+	min-height 100vh
+	.servicio-content
+		position relative
+		margin 10vh 10vw
+		min-height 80vh
+		width 80vw
+
+		.parteSuperior
+			display flex
+			flex-direction row
+			.texto
+				width 50%
+				text-align justify
+				padding 20px
+				margin 0
+				h1
+					color verde
+					font-size 40px
+			.imagen
+				width 50vw
+				height 50vh
+				background-repeat  no-repeat
+				background-position center
+				background-size cover
+		.parteInferior
+			.instructores
+				margin-top 10vh
+				md-grid-list
+					md-grid-tile
+						cursor pointer
+						overflow hidden
+						.capa
+							width 0%
+							height 100%
+							background-color rgba(255, 255, 255, .4)
+							opacity .9
+							position absolute
+							z-index 2
+							transform skew(-50deg, 0)
+							left -50%
+							transition(500ms , 0)
+						.imagen
+							background-repeat no-repeat
+							background-size cover
+							background-position center
+						.ir
+							position absolute
+							bottom 1px
+							width 100%
+							height 30px
+							.md-button
+								min-height 0px
+								height 25px
+								background-color verde
+								margin 0px
+								min-width 0px
+								border-radius 30px
+								display flex
+								justify-content flex-start
+								line-height 25px
+								color white
+								text-transform inherit
+								padding 0 5px
+								margin 0 5px
+
+								md-icon
+									transition(500ms , 0)
+									margin 0px
+									color white
+						&:hover
+							.capa
+								animation destello 500ms infinite;
+								transition(500ms , 0)
+							.imagen
+								transform scale(1.2)
+								transition(500ms , 0)
+							.ir
+								.md-button
+									md-icon
+										margin-left 10px
+
+
+.servicios-container
+	position relative
+	min-height 100vh
+	.servicios-content
+		position relative
+		margin 10vh 10vw
+		min-height 80vh
+		width 80vw
+		display flex
+		flex-direction row-reverse
+		.texto-container
+			margin-top 5vw
+			.texto
+				text-align right
+				p
+					margin 0
+					font-size 1vw
+					margin-left 4vw
+				h1
+					color grey
+					font-size 3vw
+					margin 0
+			.descripcion
+				p
+					text-align justify
+					font-size 1vw
+					padding 20px
+					margin-left 3vw
+		.grid-servicios
+			h1
+				font-size 40px
+				color verde
+			width 305%
+			md-grid-list
+				md-grid-tile
+					cursor pointer
+					overflow hidden
+					&:focus
+						outline 0px
+					&>*
+						transition(500ms , 0)
+					.capa
+						width 0%
+						height 100%
+						background-color rgba(255, 255, 255, .4)
+						opacity .9
+						position absolute
+						z-index 2
+						transform skew(-50deg, 0)
+						left -50%
+						transition(500ms , 0)
+					.imagen
+						background-repeat no-repeat
+						background-size cover
+						background-position center
+					md-grid-tile-footer
+						bottom -50px
+						height 80px
+						background-color inherit
+						display flex
+						justify-content flex-start
+						align-items flex-start
+						opacity 0
+						transition(500ms , 0)
+					&:hover
+						.capa
+							animation destello 500ms infinite;
+							transition(500ms , 0)
+						.imagen
+							transform scale(1.2)
+							transition(500ms , 0)
+						md-grid-tile-footer
+							bottom 0px
+							opacity 1
+							padding 0 10px
+							background-color rgba(0, 0, 0, .2)
+							transition(500ms , 0)
+						.ir
+							.md-button
+								md-icon
+									margin-left 10px
+									
+
+					.ir
+						position absolute
+						bottom 1px
+						width 100%
+						height 30px
+						.md-button
+							min-height 0px
+							height 25px
+							background-color verde
+							margin 0px
+							min-width 0px
+							border-radius 30px
+							display flex
+							justify-content flex-start
+							line-height 25px
+							color white
+							text-transform inherit
+							padding 0 5px
+							margin 0 5px
+
+							md-icon
+								transition(500ms , 0)
+								margin 0px
+								color white
+.instructores-container
+	position relative
+	min-height 100vh
+	.instructores-content
+		position relative
+		margin 10vh 10vw
+		min-height 80vh
+		width 80vw
+		.contenido
+			display flex
+			flex-direction row
+			margin-top 30vh
+			align-items center
+			.texto-instructores., .imagenes-instructores
+				width 50%
+			.texto-instructores
+				p
+					margin 0 60px
+					font-size 14px
+				h1
+					color verde
+					font-size 60px
+					font-weight 100
+					margin 0
+				.instructor-detalle
+					width 80%
+					h3
+						font-size 16px
+						color gray
+						margin 20px 65px
+					.descripcion
+						text-align justify
+						color dimgrey
+			.imagenes-instructores
+				md-grid-list
+					md-grid-tile
+						cursor pointer
+						overflow hidden
+						&:focus
+							outline 0px
+						.capa
+							width 0%
+							height 100%
+							background-color rgba(255, 255, 255, .4)
+							opacity .9
+							position absolute
+							z-index 2
+							transform skew(-50deg, 0)
+							left -50%
+							transition(500ms , 0)
+						.imagen
+							background-repeat no-repeat
+							background-size cover
+							background-position center
+						md-grid-tile-footer
+							bottom -50px
+							height 80px
+							background-color inherit
+							display flex
+							justify-content flex-start
+							align-items flex-start
+							opacity 0
+							transition(500ms , 0)
+						&:hover
+							.capa
+								animation destello 500ms infinite;
+								transition(500ms , 0)
+							.imagen
+								transform scale(1.2)
+								transition(500ms , 0)
+							md-grid-tile-footer
+								bottom 0px
+								opacity 1
+								padding 0 10px
+								background-color rgba(0, 0, 0, .2)
+								transition(500ms , 0)
+
+.salones-container
+	position relative
+	min-height 100vh
+	.salones-content
+		position relative
+		margin 10vh 10vw
+		min-height 80vh
+		width 80vw
+		.texto-container
+			margin-top 5vw
+			.texto
+				text-align left
+				p
+					margin 0
+					font-size 1vw
+					margin-left 4vw
+				h1
+					color grey
+					font-size 3vw
+					margin 0
+			.descripcion
+				p
+					text-align justify
+					font-size 1vw
+					padding 20px
+					margin-left 3vw
+		.grid-salones
+			h1
+				font-size 40px
+				color verde
+			width 305%
+			md-grid-list
+				md-grid-tile
+					cursor pointer
+					overflow hidden
+					&:focus
+						outline 0px
+					.capa
+						width 0%
+						height 100%
+						background-color rgba(255, 255, 255, .4)
+						opacity .9
+						position absolute
+						z-index 2
+						transform skew(-50deg, 0)
+						left -50%
+						transition(500ms , 0)
+					.imagen
+						background-repeat no-repeat
+						background-size cover
+						background-position center
+					md-grid-tile-footer
+						bottom -50px
+						height 80px
+						background-color inherit
+						display flex
+						justify-content flex-start
+						align-items flex-start
+						opacity 0
+						transition(500ms , 0)
+					.ir
+						position absolute
+						bottom 1px
+						width 100%
+						height 30px
+						.md-button
+							min-height 0px
+							height 25px
+							background-color verde
+							margin 0px
+							min-width 0px
+							border-radius 30px
+							display flex
+							justify-content flex-start
+							line-height 25px
+							color white
+							text-transform inherit
+							padding 0 5px
+							margin 0 5px
+
+							md-icon
+								transition(500ms , 0)
+								margin 0px
+								color white
+					&:hover
+						.capa
+							animation destello 500ms infinite;
+							transition(500ms , 0)
+						.imagen
+							transform scale(1.2)
+							transition(500ms , 0)
+						md-grid-tile-footer
+							bottom 0px
+							opacity 1
+							padding 0 10px
+							background-color rgba(0, 0, 0, .2)
+							transition(500ms , 0)
+						.ir
+							.md-button
+								md-icon
+									margin-left 10px
+
+.portada-salon
+	height 50vh
+	width 100vw
+	background-repeat  no-repeat
+	background-position center
+	background-size cover
+	.texto-experiencia
+		position absolute
+		top 13vh
+		left 6vw
+		right 0
+		bottom 0
+		width 52vw
+		p
+			color white
+			font-size 11px
+		h1
+			color white
+			font-size 4vw
+			margin 0
+		.descripcion
+			text-align justify
+			color white
+			font-size 12px
+			width 32vw
+			margin-left 7vw
+.salon-container
+	position relative
+	min-height 100vh
+	.salon-content
+		position relative
+		margin 10vh 10vw
+		min-height 80vh
+		width 80vw
+
+.contacto-container
+	position relative
+	min-height 100vh
+	.contacto-content
+		position relative
+		margin 10vh 10vw
+		min-height 80vh
+		width 80vw
+		display flex
+		justify-content center
+		align-items center
+		flex-direction column
+		.tituloContacto
+			h1
+				font-size 43px
+				text-align center
+				color verde
+		.formulario-container
+			display flex
+			justify-content center
+			align-items center
+			.formulario
+				display flex
+				flex-direction column
+				width 45vh
+				md-input-container
+					margin 0
+					label
+						color verde
+					input
+						border-bottom-color verde
+					textarea
+						border-bottom-color verde
+				.md-button
+					margin 0 auto
+					background-color footerColor
+					span
+						color white
+						font-size 17px
+		.entregado
+			h1
+				text-align center
+				font-size 40px
+				color verde
+.historia-container
+	position relative
+	min-height 100vh
+	.historia-content
+		position relative
+		margin 10vh 10vw
+		min-height 80vh
+		width 80vw
+		display flex
+		flex-direction column
+		.parteSuperior
+			display flex
+			flex-direction row
+			.texto-container
+				Width 40%
+				.texto
+					p
+						margin 0
+						font-size 1vw
+						margin-left 4vw
+					h1
+						color grey
+						font-size 3vw
+						margin 0
+				.descripcion
+					p
+						text-align justify
+						font-size 1vw
+						padding 20px
+						width 75%
+			.imagen-container
+				min-width 60%
+				height 65%
+				.imagen
+					Width 100%
+					height 100%
+					background-position center
+					background-repeat no-repeat
+					background-size cover

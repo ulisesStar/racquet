@@ -1,0 +1,1272 @@
+* {
+  box-sizing: border-box;
+  font-family: Cabin;
+}
+md-grid-list md-grid-tile {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+main {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+.nav {
+  height: 40px;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background-color: #3a512b;
+}
+.nav .nav-content {
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.nav .nav-content .logo {
+  width: 124px;
+  cursor: pointer;
+}
+.nav .nav-content .logo:focus {
+  outline: 0px;
+}
+.nav .nav-content div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav .nav-content .conoceMas .md-button {
+  margin: 0 15px;
+  min-height: 30px;
+  line-height: 30px;
+  height: 30px;
+  padding: 0 5px;
+}
+.nav .nav-content .navegacion .md-button:first-child {
+  border-right: 1px solid rgba(255,255,255,0.3);
+}
+.nav .nav-content h3 {
+  color: #fff;
+  cursor: pointer;
+  font-size: 1vw;
+}
+.nav .nav-content h3:focus {
+  outline: 0px;
+}
+.nav .nav-content p,
+.nav .nav-content span {
+  color: #fff;
+  font-size: 12px;
+}
+.nav .nav-content .md-button .menu {
+  height: 40px;
+  margin: 0px;
+  border-radius: 0px;
+  line-height: 40px;
+}
+.menu-home md-sidenav {
+  display: flex;
+  position: fixed;
+  max-width: inherit;
+  width: 100%;
+}
+footer {
+  background-color: #8e2e2e;
+}
+footer .footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .footer .md-button {
+  width: 10%;
+}
+footer .footer .md-button img {
+  width: 100%;
+}
+footer .footer .secciones-container {
+  display: flex;
+  cursor: pointer;
+  width: 13%;
+  justify-content: space-between;
+}
+footer .footer .secciones-container .seccion-uno,
+footer .footer .secciones-container .seccion-dos {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+}
+footer .footer .secciones-container .seccion-uno h4,
+footer .footer .secciones-container .seccion-dos h4 {
+  margin: 2px;
+  color: #fff;
+  font-size: 12px;
+}
+footer .footer .secciones-container .seccion-uno h4:focus,
+footer .footer .secciones-container .seccion-dos h4:focus {
+  outline: 0px;
+}
+footer .footer .contactoFooter p,
+footer .footer .textoFooter p {
+  margin: 2;
+  color: #fff;
+  font-size: 12px;
+}
+footer .footer .contactoFooter {
+  margin-right: 400px;
+}
+footer .footer .contactoFooter .iconos {
+  display: flex;
+  flex-direction: row;
+}
+footer .footer .contactoFooter .iconos img {
+  height: 24px;
+  width: 24px;
+}
+.home-container {
+  position: relative;
+  min-height: 100vh;
+}
+.home-container .home-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+}
+.home-container .home-content section.grid-container {
+  margin-top: 10%;
+  min-height: 100vh;
+  position: relative;
+  margin-bottom: 20vh;
+}
+.home-container .home-content section.grid-container md-grid-list {
+  transform: scale(0.9) !important;
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile {
+  cursor: pointer;
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido>* {
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido .capa {
+  width: 0%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.4);
+  opacity: 0.9;
+  position: absolute;
+  z-index: 2;
+  transform: skew(-50deg, 0);
+  left: -50%;
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido .imagen {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido md-grid-tile-footer {
+  bottom: -50px;
+  height: 80px;
+  background-color: inherit;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  opacity: 0;
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido md-grid-tile-footer p {
+  font-weight: 800;
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido .ir {
+  position: absolute;
+  bottom: 1px;
+  width: 100%;
+  height: 30px;
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido .ir .md-button {
+  min-height: 0px;
+  height: 25px;
+  background-color: #3a512b;
+  margin: 0px;
+  min-width: 0px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: flex-start;
+  line-height: 25px;
+  color: #fff;
+  text-transform: inherit;
+  padding: 0 5px;
+  margin: 0 5px;
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido .ir .md-button md-icon {
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+  margin: 0px;
+  color: #fff;
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile:hover .capa {
+  -webkit-animation: destello 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: destello 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  -webkit-transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 500ms ease-in-out;
+  transition-delay: 500ms ease-in-out;
+  -webkit-transition-delay: infinite ease-in-out;
+  transition-delay: infinite ease-in-out;
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile:hover .imagen {
+  transform: scale(1.2);
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile:hover md-grid-tile-footer {
+  bottom: 0px;
+  opacity: 1;
+  padding: 0 10px;
+  background-color: rgba(0,0,0,0.2);
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile:hover .ir .md-button md-icon {
+  margin-left: 10px;
+}
+.home-container .home-content section.club {
+  min-height: 100vh;
+}
+.home-container .home-content section.club .texto h1 {
+  color: #808080;
+  font-size: 5vw;
+  margin: 0;
+  font-weight: 100;
+}
+.home-container .home-content section.club .texto p {
+  font-size: 1.5vw;
+  margin: 0;
+  margin-left: 5vw;
+}
+.home-container .home-content section.club .texto .texto-descripcion p {
+  text-align: justify;
+  padding: 10px;
+}
+.home-container .home-content section.ambiente {
+  min-height: 100vh;
+md-grid-list
+  transform: scale(0.9) !important;
+}
+.home-container .home-content section.ambiente md-grid-list {
+  transform: scale(0.9) !important;
+}
+.home-container .home-content section.ambiente .texto h1 {
+  color: #808080;
+  font-size: 5vw;
+  margin: 0;
+  font-weight: 100;
+}
+.home-container .home-content section.ambiente .texto p {
+  font-size: 1.5vw;
+  margin: 0;
+  margin-left: 5vw;
+}
+.home-container .home-content section.ambiente .datos h1 {
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  font-size: 2.5vw;
+}
+.home-container .home-content section.ambiente .datos p {
+  color: #fff;
+  margin: 0;
+  padding: 10px;
+  text-align: justify;
+  font-size: 1vw;
+}
+.instalaciones-container {
+  position: relative;
+  min-height: 100vh;
+}
+.instalaciones-container .instalaciones-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+}
+.instalaciones-container .instalaciones-content .texto-container {
+  margin-top: 5vw;
+}
+.instalaciones-container .instalaciones-content .texto-container .texto p {
+  margin: 0;
+  font-size: 1vw;
+  margin-left: 4vw;
+}
+.instalaciones-container .instalaciones-content .texto-container .texto h1 {
+  color: #808080;
+  font-size: 3vw;
+  margin: 0;
+}
+.instalaciones-container .instalaciones-content .texto-container .descripcion p {
+  text-align: justify;
+  font-size: 1vw;
+  padding: 20px;
+  margin-left: 3vw;
+}
+.instalaciones-container .instalaciones-content .grid-instalaciones {
+  width: 305%;
+}
+.instalaciones-container .instalaciones-content .grid-instalaciones md-grid-list md-grid-tile {
+  cursor: pointer;
+  overflow: hidden;
+}
+.instalaciones-container .instalaciones-content .grid-instalaciones md-grid-list md-grid-tile:focus {
+  outline: 0px;
+}
+.instalaciones-container .instalaciones-content .grid-instalaciones md-grid-list md-grid-tile .capa {
+  width: 0%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.4);
+  opacity: 0.9;
+  position: absolute;
+  z-index: 2;
+  transform: skew(-50deg, 0);
+  left: -50%;
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.instalaciones-container .instalaciones-content .grid-instalaciones md-grid-list md-grid-tile .imagen {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.instalaciones-container .instalaciones-content .grid-instalaciones md-grid-list md-grid-tile md-grid-tile-footer {
+  bottom: -50px;
+  height: 80px;
+  background-color: inherit;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  opacity: 0;
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.instalaciones-container .instalaciones-content .grid-instalaciones md-grid-list md-grid-tile .ir {
+  position: absolute;
+  bottom: 1px;
+  width: 100%;
+  height: 30px;
+}
+.instalaciones-container .instalaciones-content .grid-instalaciones md-grid-list md-grid-tile .ir .md-button {
+  min-height: 0px;
+  height: 25px;
+  background-color: #3a512b;
+  margin: 0px;
+  min-width: 0px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: flex-start;
+  line-height: 25px;
+  color: #fff;
+  text-transform: inherit;
+  padding: 0 5px;
+  margin: 0 5px;
+}
+.instalaciones-container .instalaciones-content .grid-instalaciones md-grid-list md-grid-tile .ir .md-button md-icon {
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+  margin: 0px;
+  color: #fff;
+}
+.instalaciones-container .instalaciones-content .grid-instalaciones md-grid-list md-grid-tile:hover .capa {
+  -webkit-animation: destello 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: destello 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  -webkit-transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 500ms ease-in-out;
+  transition-delay: 500ms ease-in-out;
+  -webkit-transition-delay: infinite ease-in-out;
+  transition-delay: infinite ease-in-out;
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.instalaciones-container .instalaciones-content .grid-instalaciones md-grid-list md-grid-tile:hover .imagen {
+  transform: scale(1.2);
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.instalaciones-container .instalaciones-content .grid-instalaciones md-grid-list md-grid-tile:hover md-grid-tile-footer {
+  bottom: 0px;
+  opacity: 1;
+  padding: 0 10px;
+  background-color: rgba(0,0,0,0.2);
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.instalaciones-container .instalaciones-content .grid-instalaciones md-grid-list md-grid-tile:hover .ir .md-button md-icon {
+  margin-left: 10px;
+}
+.instalacion-container {
+  position: relative;
+  min-height: 100vh;
+}
+.instalacion-container .instalacion-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+}
+.instalacion-container .instalacion-content .portada {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.instalacion-container .instalacion-content .titulo {
+  position: absolute;
+  margin: auto;
+  left: 25vw;
+  right: 0px;
+  top: 16vh;
+  bottom: 0px;
+}
+.instalacion-container .instalacion-content .titulo h1 {
+  color: #fff;
+  font-size: 4vw;
+}
+.instalacion-container .instalacion-content .informacion-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3vh;
+}
+.instalacion-container .instalacion-content .informacion-container .parteIzquierda {
+  position: relative;
+  width: 100%;
+}
+.instalacion-container .instalacion-content .informacion-container .parteIzquierda .textoIzquierda h1 {
+  color: #808080;
+  font-size: 5vw;
+  margin: 0;
+}
+.instalacion-container .instalacion-content .informacion-container .parteIzquierda .textoIzquierda .descripcion {
+  width: 100%;
+}
+.instalacion-container .instalacion-content .informacion-container .parteIzquierda .textoIzquierda .descripcion p {
+  font-size: 1.3vw;
+  text-align: justify;
+}
+.instalacion-container .instalacion-content .informacion-container .parteIzquierda .imagenIzquierda {
+  height: 75vh;
+  width: 32vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 3vh;
+}
+.instalacion-container .instalacion-content .informacion-container .parteDerecha {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.instalacion-container .instalacion-content .informacion-container .parteDerecha .imagenDerecha {
+  height: 75vh;
+  width: 32vw;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 2vh;
+}
+.instalacion-container .instalacion-content .informacion-container .parteDerecha .textoDerecha {
+  width: 90%;
+  margin: 20px 0;
+}
+.instalacion-container .instalacion-content .informacion-container .parteDerecha .textoDerecha h1 {
+  font-size: 2vw;
+  margin: 0;
+  color: #808080;
+}
+.instalacion-container .instalacion-content .informacion-container .parteDerecha .textoDerecha .servicios .md-list-item-text md-icon {
+  color: #8e2f2e;
+}
+.instalacion-container .instalacion-content .informacion-container .parteDerecha .textoDerecha .servicios .md-list-item-text p {
+  color: #8e2f2e;
+  margin: 0;
+  font-size: 1.4vw;
+}
+.portada-servicio {
+  height: 100vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.portada-servicio .texto-experiencia {
+  position: absolute;
+  top: 50vh;
+  left: 60vw;
+  right: 0;
+  bottom: 0;
+}
+.portada-servicio .texto-experiencia h1 {
+  color: #fff;
+  font-size: 4vw;
+  font-weight: 100;
+}
+.portada-servicio .texto-experiencia h4 {
+  color: #fff;
+}
+.servicio-container {
+  position: relative;
+  min-height: 100vh;
+}
+.servicio-container .servicio-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+}
+.servicio-container .servicio-content .parteSuperior {
+  display: flex;
+  flex-direction: row;
+}
+.servicio-container .servicio-content .parteSuperior .texto {
+  width: 50%;
+  text-align: justify;
+  padding: 20px;
+  margin: 0;
+}
+.servicio-container .servicio-content .parteSuperior .texto h1 {
+  color: #3a512b;
+  font-size: 40px;
+}
+.servicio-container .servicio-content .parteSuperior .imagen {
+  width: 50vw;
+  height: 50vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.servicio-container .servicio-content .parteInferior .instructores {
+  margin-top: 10vh;
+}
+.servicio-container .servicio-content .parteInferior .instructores md-grid-list md-grid-tile {
+  cursor: pointer;
+  overflow: hidden;
+}
+.servicio-container .servicio-content .parteInferior .instructores md-grid-list md-grid-tile .capa {
+  width: 0%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.4);
+  opacity: 0.9;
+  position: absolute;
+  z-index: 2;
+  transform: skew(-50deg, 0);
+  left: -50%;
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.servicio-container .servicio-content .parteInferior .instructores md-grid-list md-grid-tile .imagen {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.servicio-container .servicio-content .parteInferior .instructores md-grid-list md-grid-tile .ir {
+  position: absolute;
+  bottom: 1px;
+  width: 100%;
+  height: 30px;
+}
+.servicio-container .servicio-content .parteInferior .instructores md-grid-list md-grid-tile .ir .md-button {
+  min-height: 0px;
+  height: 25px;
+  background-color: #3a512b;
+  margin: 0px;
+  min-width: 0px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: flex-start;
+  line-height: 25px;
+  color: #fff;
+  text-transform: inherit;
+  padding: 0 5px;
+  margin: 0 5px;
+}
+.servicio-container .servicio-content .parteInferior .instructores md-grid-list md-grid-tile .ir .md-button md-icon {
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+  margin: 0px;
+  color: #fff;
+}
+.servicio-container .servicio-content .parteInferior .instructores md-grid-list md-grid-tile:hover .capa {
+  -webkit-animation: destello 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: destello 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  -webkit-transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 500ms ease-in-out;
+  transition-delay: 500ms ease-in-out;
+  -webkit-transition-delay: infinite ease-in-out;
+  transition-delay: infinite ease-in-out;
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.servicio-container .servicio-content .parteInferior .instructores md-grid-list md-grid-tile:hover .imagen {
+  transform: scale(1.2);
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.servicio-container .servicio-content .parteInferior .instructores md-grid-list md-grid-tile:hover .ir .md-button md-icon {
+  margin-left: 10px;
+}
+.servicios-container {
+  position: relative;
+  min-height: 100vh;
+}
+.servicios-container .servicios-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.servicios-container .servicios-content .texto-container {
+  margin-top: 5vw;
+}
+.servicios-container .servicios-content .texto-container .texto {
+  text-align: right;
+}
+.servicios-container .servicios-content .texto-container .texto p {
+  margin: 0;
+  font-size: 1vw;
+  margin-left: 4vw;
+}
+.servicios-container .servicios-content .texto-container .texto h1 {
+  color: #808080;
+  font-size: 3vw;
+  margin: 0;
+}
+.servicios-container .servicios-content .texto-container .descripcion p {
+  text-align: justify;
+  font-size: 1vw;
+  padding: 20px;
+  margin-left: 3vw;
+}
+.servicios-container .servicios-content .grid-servicios {
+  width: 305%;
+}
+.servicios-container .servicios-content .grid-servicios h1 {
+  font-size: 40px;
+  color: #3a512b;
+}
+.servicios-container .servicios-content .grid-servicios md-grid-list md-grid-tile {
+  cursor: pointer;
+  overflow: hidden;
+}
+.servicios-container .servicios-content .grid-servicios md-grid-list md-grid-tile:focus {
+  outline: 0px;
+}
+.servicios-container .servicios-content .grid-servicios md-grid-list md-grid-tile>* {
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.servicios-container .servicios-content .grid-servicios md-grid-list md-grid-tile .capa {
+  width: 0%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.4);
+  opacity: 0.9;
+  position: absolute;
+  z-index: 2;
+  transform: skew(-50deg, 0);
+  left: -50%;
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.servicios-container .servicios-content .grid-servicios md-grid-list md-grid-tile .imagen {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.servicios-container .servicios-content .grid-servicios md-grid-list md-grid-tile md-grid-tile-footer {
+  bottom: -50px;
+  height: 80px;
+  background-color: inherit;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  opacity: 0;
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.servicios-container .servicios-content .grid-servicios md-grid-list md-grid-tile:hover .capa {
+  -webkit-animation: destello 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: destello 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  -webkit-transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 500ms ease-in-out;
+  transition-delay: 500ms ease-in-out;
+  -webkit-transition-delay: infinite ease-in-out;
+  transition-delay: infinite ease-in-out;
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.servicios-container .servicios-content .grid-servicios md-grid-list md-grid-tile:hover .imagen {
+  transform: scale(1.2);
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.servicios-container .servicios-content .grid-servicios md-grid-list md-grid-tile:hover md-grid-tile-footer {
+  bottom: 0px;
+  opacity: 1;
+  padding: 0 10px;
+  background-color: rgba(0,0,0,0.2);
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.servicios-container .servicios-content .grid-servicios md-grid-list md-grid-tile:hover .ir .md-button md-icon {
+  margin-left: 10px;
+}
+.servicios-container .servicios-content .grid-servicios md-grid-list md-grid-tile .ir {
+  position: absolute;
+  bottom: 1px;
+  width: 100%;
+  height: 30px;
+}
+.servicios-container .servicios-content .grid-servicios md-grid-list md-grid-tile .ir .md-button {
+  min-height: 0px;
+  height: 25px;
+  background-color: #3a512b;
+  margin: 0px;
+  min-width: 0px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: flex-start;
+  line-height: 25px;
+  color: #fff;
+  text-transform: inherit;
+  padding: 0 5px;
+  margin: 0 5px;
+}
+.servicios-container .servicios-content .grid-servicios md-grid-list md-grid-tile .ir .md-button md-icon {
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+  margin: 0px;
+  color: #fff;
+}
+.instructores-container {
+  position: relative;
+  min-height: 100vh;
+}
+.instructores-container .instructores-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+}
+.instructores-container .instructores-content .contenido {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30vh;
+  align-items: center;
+}
+.instructores-container .instructores-content .contenido .texto-instructores.,
+.instructores-container .instructores-content .contenido .imagenes-instructores {
+  width: 50%;
+}
+.instructores-container .instructores-content .contenido .texto-instructores p {
+  margin: 0 60px;
+  font-size: 14px;
+}
+.instructores-container .instructores-content .contenido .texto-instructores h1 {
+  color: #3a512b;
+  font-size: 60px;
+  font-weight: 100;
+  margin: 0;
+}
+.instructores-container .instructores-content .contenido .texto-instructores .instructor-detalle {
+  width: 80%;
+}
+.instructores-container .instructores-content .contenido .texto-instructores .instructor-detalle h3 {
+  font-size: 16px;
+  color: #808080;
+  margin: 20px 65px;
+}
+.instructores-container .instructores-content .contenido .texto-instructores .instructor-detalle .descripcion {
+  text-align: justify;
+  color: #696969;
+}
+.instructores-container .instructores-content .contenido .imagenes-instructores md-grid-list md-grid-tile {
+  cursor: pointer;
+  overflow: hidden;
+}
+.instructores-container .instructores-content .contenido .imagenes-instructores md-grid-list md-grid-tile:focus {
+  outline: 0px;
+}
+.instructores-container .instructores-content .contenido .imagenes-instructores md-grid-list md-grid-tile .capa {
+  width: 0%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.4);
+  opacity: 0.9;
+  position: absolute;
+  z-index: 2;
+  transform: skew(-50deg, 0);
+  left: -50%;
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.instructores-container .instructores-content .contenido .imagenes-instructores md-grid-list md-grid-tile .imagen {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.instructores-container .instructores-content .contenido .imagenes-instructores md-grid-list md-grid-tile md-grid-tile-footer {
+  bottom: -50px;
+  height: 80px;
+  background-color: inherit;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  opacity: 0;
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.instructores-container .instructores-content .contenido .imagenes-instructores md-grid-list md-grid-tile:hover .capa {
+  -webkit-animation: destello 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: destello 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  -webkit-transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 500ms ease-in-out;
+  transition-delay: 500ms ease-in-out;
+  -webkit-transition-delay: infinite ease-in-out;
+  transition-delay: infinite ease-in-out;
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.instructores-container .instructores-content .contenido .imagenes-instructores md-grid-list md-grid-tile:hover .imagen {
+  transform: scale(1.2);
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.instructores-container .instructores-content .contenido .imagenes-instructores md-grid-list md-grid-tile:hover md-grid-tile-footer {
+  bottom: 0px;
+  opacity: 1;
+  padding: 0 10px;
+  background-color: rgba(0,0,0,0.2);
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.salones-container {
+  position: relative;
+  min-height: 100vh;
+}
+.salones-container .salones-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+}
+.salones-container .salones-content .texto-container {
+  margin-top: 5vw;
+}
+.salones-container .salones-content .texto-container .texto {
+  text-align: left;
+}
+.salones-container .salones-content .texto-container .texto p {
+  margin: 0;
+  font-size: 1vw;
+  margin-left: 4vw;
+}
+.salones-container .salones-content .texto-container .texto h1 {
+  color: #808080;
+  font-size: 3vw;
+  margin: 0;
+}
+.salones-container .salones-content .texto-container .descripcion p {
+  text-align: justify;
+  font-size: 1vw;
+  padding: 20px;
+  margin-left: 3vw;
+}
+.salones-container .salones-content .grid-salones {
+  width: 305%;
+}
+.salones-container .salones-content .grid-salones h1 {
+  font-size: 40px;
+  color: #3a512b;
+}
+.salones-container .salones-content .grid-salones md-grid-list md-grid-tile {
+  cursor: pointer;
+  overflow: hidden;
+}
+.salones-container .salones-content .grid-salones md-grid-list md-grid-tile:focus {
+  outline: 0px;
+}
+.salones-container .salones-content .grid-salones md-grid-list md-grid-tile .capa {
+  width: 0%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.4);
+  opacity: 0.9;
+  position: absolute;
+  z-index: 2;
+  transform: skew(-50deg, 0);
+  left: -50%;
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.salones-container .salones-content .grid-salones md-grid-list md-grid-tile .imagen {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.salones-container .salones-content .grid-salones md-grid-list md-grid-tile md-grid-tile-footer {
+  bottom: -50px;
+  height: 80px;
+  background-color: inherit;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  opacity: 0;
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.salones-container .salones-content .grid-salones md-grid-list md-grid-tile .ir {
+  position: absolute;
+  bottom: 1px;
+  width: 100%;
+  height: 30px;
+}
+.salones-container .salones-content .grid-salones md-grid-list md-grid-tile .ir .md-button {
+  min-height: 0px;
+  height: 25px;
+  background-color: #3a512b;
+  margin: 0px;
+  min-width: 0px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: flex-start;
+  line-height: 25px;
+  color: #fff;
+  text-transform: inherit;
+  padding: 0 5px;
+  margin: 0 5px;
+}
+.salones-container .salones-content .grid-salones md-grid-list md-grid-tile .ir .md-button md-icon {
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+  margin: 0px;
+  color: #fff;
+}
+.salones-container .salones-content .grid-salones md-grid-list md-grid-tile:hover .capa {
+  -webkit-animation: destello 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  animation: destello 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition: all 500ms ease-in-out;
+  -moz-transition: all 500ms ease-in-out;
+  -o-transition: all 500ms ease-in-out;
+  -webkit-transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all all cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 500ms ease-in-out;
+  transition-delay: 500ms ease-in-out;
+  -webkit-transition-delay: infinite ease-in-out;
+  transition-delay: infinite ease-in-out;
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.salones-container .salones-content .grid-salones md-grid-list md-grid-tile:hover .imagen {
+  transform: scale(1.2);
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.salones-container .salones-content .grid-salones md-grid-list md-grid-tile:hover md-grid-tile-footer {
+  bottom: 0px;
+  opacity: 1;
+  padding: 0 10px;
+  background-color: rgba(0,0,0,0.2);
+  -webkit-transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  transition: all 500ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
+  -webkit-transition-delay: 0 ease-in-out;
+  transition-delay: 0 ease-in-out;
+}
+.salones-container .salones-content .grid-salones md-grid-list md-grid-tile:hover .ir .md-button md-icon {
+  margin-left: 10px;
+}
+.portada-salon {
+  height: 50vh;
+  width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.portada-salon .texto-experiencia {
+  position: absolute;
+  top: 13vh;
+  left: 6vw;
+  right: 0;
+  bottom: 0;
+  width: 52vw;
+}
+.portada-salon .texto-experiencia p {
+  color: #fff;
+  font-size: 11px;
+}
+.portada-salon .texto-experiencia h1 {
+  color: #fff;
+  font-size: 4vw;
+  margin: 0;
+}
+.portada-salon .texto-experiencia .descripcion {
+  text-align: justify;
+  color: #fff;
+  font-size: 12px;
+  width: 32vw;
+  margin-left: 7vw;
+}
+.salon-container {
+  position: relative;
+  min-height: 100vh;
+}
+.salon-container .salon-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+}
+.contacto-container {
+  position: relative;
+  min-height: 100vh;
+}
+.contacto-container .contacto-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.contacto-container .contacto-content .tituloContacto h1 {
+  font-size: 43px;
+  text-align: center;
+  color: #3a512b;
+}
+.contacto-container .contacto-content .formulario-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contacto-container .contacto-content .formulario-container .formulario {
+  display: flex;
+  flex-direction: column;
+  width: 45vh;
+}
+.contacto-container .contacto-content .formulario-container .formulario md-input-container {
+  margin: 0;
+}
+.contacto-container .contacto-content .formulario-container .formulario md-input-container label {
+  color: #3a512b;
+}
+.contacto-container .contacto-content .formulario-container .formulario md-input-container input {
+  border-bottom-color: #3a512b;
+}
+.contacto-container .contacto-content .formulario-container .formulario md-input-container textarea {
+  border-bottom-color: #3a512b;
+}
+.contacto-container .contacto-content .formulario-container .formulario .md-button {
+  margin: 0 auto;
+  background-color: #8e2e2e;
+}
+.contacto-container .contacto-content .formulario-container .formulario .md-button span {
+  color: #fff;
+  font-size: 17px;
+}
+.contacto-container .contacto-content .entregado h1 {
+  text-align: center;
+  font-size: 40px;
+  color: #3a512b;
+}
+.historia-container {
+  position: relative;
+  min-height: 100vh;
+}
+.historia-container .historia-content {
+  position: relative;
+  margin: 10vh 10vw;
+  min-height: 80vh;
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+}
+.historia-container .historia-content .parteSuperior {
+  display: flex;
+  flex-direction: row;
+}
+.historia-container .historia-content .parteSuperior .texto-container {
+  Width: 40%;
+}
+.historia-container .historia-content .parteSuperior .texto-container .texto p {
+  margin: 0;
+  font-size: 1vw;
+  margin-left: 4vw;
+}
+.historia-container .historia-content .parteSuperior .texto-container .texto h1 {
+  color: #808080;
+  font-size: 3vw;
+  margin: 0;
+}
+.historia-container .historia-content .parteSuperior .texto-container .descripcion p {
+  text-align: justify;
+  font-size: 1vw;
+  padding: 20px;
+  width: 75%;
+}
+.historia-container .historia-content .parteSuperior .imagen-container {
+  min-width: 60%;
+  height: 65%;
+}
+.historia-container .historia-content .parteSuperior .imagen-container .imagen {
+  Width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@-moz-keyframes destello {
+  0% {
+    width: 0%;
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  90% {
+    width: 200%;
+  }
+  100% {
+    width: 0%;
+    opacity: 0;
+  }
+}
+@-webkit-keyframes destello {
+  0% {
+    width: 0%;
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  90% {
+    width: 200%;
+  }
+  100% {
+    width: 0%;
+    opacity: 0;
+  }
+}
+@-o-keyframes destello {
+  0% {
+    width: 0%;
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  90% {
+    width: 200%;
+  }
+  100% {
+    width: 0%;
+    opacity: 0;
+  }
+}
+@keyframes destello {
+  0% {
+    width: 0%;
+    opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  90% {
+    width: 200%;
+  }
+  100% {
+    width: 0%;
+    opacity: 0;
+  }
+}

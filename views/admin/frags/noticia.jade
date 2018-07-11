@@ -1,0 +1,41 @@
+.noticia(layout="row" layout-xs="column")
+	md-card.noticia-container(flex)
+		md-toolbar
+			.md-toolbar-tools
+				h4 Blog
+		md-card-content.noticia-content
+			.content(layout="row")
+				md-icon(md-colors="{color: 'green'}") label
+				md-chips(ng-model="ctrl.tags.items"
+					md-autocomplete-snap
+					md-transform-chip="ctrl.tags.transformar($chip)"
+					md-on-remove="ctrl.tags.remover($chip, $index)"
+					flex="100")
+					md-autocomplete(
+						md-selected-item="ctrl.tags.item"
+						md-selected-item-change="ctrl.tags.seleccion(ctrl.tags.item)"
+						md-search-text="ctrl.tags.busqueda"
+						md-items="item in ctrl.tags.filtrar(ctrl.tags.busqueda)"
+						md-item-text="item.nombre"
+						placeholder="Tags")
+						span(md-highlight-text="ctrl.searchText") {{item.nombre}}
+					md-chip-template
+						span
+							strong {{$chip.nombre}}
+
+			form.instructor-form(ng-submit="ctrl.noticias.editarNotica(ctrl.noticias.item)" layout="column")
+				.info(layout="row" layout-xs="column" layout-align="space-between center")
+					md-input-container(flex)
+						md-icon(md-colors="{color: 'green'}")  &#xE873;
+						label Nombre de la noticia
+						input(ng-model="ctrl.noticias.item.nombre")
+				.descripcion-container
+					.titulo(layout="row")
+						md-icon(md-colors="{color: 'green'}") &#xe22b;
+						p Descripción de la noticia
+					text-angular(ng-model="ctrl.noticias.item.descripcion")
+				md-button.instructor.info(type="submit")
+					md-icon save
+
+			md-grid-list(md-cols="4" md-row-height="150px")
+				md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="imagen in ctrl.noticias.ImagenesXnoticia" style="background-image:url({{imagen.imagen}})")

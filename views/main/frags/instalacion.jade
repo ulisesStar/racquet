@@ -1,0 +1,22 @@
+.instalacion-container
+	.instalacion-content
+		.portada(style="background-image:url({{ctrl.instalacion.item.imagen[0].imagen}}); width: 100%; height : 45%")
+		//-.titulo
+			h1 {{ctrl.instalacion.item.nombre}}
+		.informacion-container(layout="row")
+			.parteIzquierda
+				.textoIzquierda(layout="column")
+					h1 {{ctrl.instalacion.item.nombre}}
+					.descripcion(ng-bind-html="ctrl.instalacion.item.descripcion")
+				.imagenIzquierda(style="background-image:url({{ctrl.instalacion.item.imagen[1].imagen}})")
+			.parteDerecha
+				.imagenDerecha(style="background-image:url({{ctrl.instalacion.item.imagen[2].imagen}})")
+				.textoDerecha
+					h1 Servicios brindados
+					.servicios(ng-repeat="servicio in ctrl.instalacion.item.servicios")
+						md-list
+							md-list-item
+								.md-list-item-text(layout="row", ng-click="ctrl.instalacion.mandarAservicio(servicio.id)")
+									md-icon remove
+									p {{servicio.nombre}}
+						//-.descripcion(ng-bind-html="servicio.descripcion")

@@ -1,0 +1,30 @@
+.instructor(layout="row" layout-xs="column")
+	md-card.instructores-content
+		md-toolbar
+			.md-toolbar-tools
+				h4 Información Básica
+				span(flex)
+				md-button(ng-click="ctrl.instructores.habilitarEdicion()")
+					md-icon(ng-show="!ctrl.infomuestra") edit
+					md-icon(ng-show="ctrl.infomuestra") clear
+		md-card-content
+			.AntesEdicion(ng-show= "!ctrl.infomuestra")
+				h1 Nombre:
+				h3 {{ctrl.instructores.item.nombre}}
+				md-divider
+				h1 Descripcion:
+				.infoBasica-content(ng-bind-html="ctrl.instructores.item.descripcion")
+			.DespuesEdicion(ng-show= "ctrl.infomuestra")
+				form.instructor-form(ng-submit="ctrl.instructores.editarInstructor(ctrl.instructores.item)" layout="column")
+					.info(layout="row" layout-xs="column" layout-align="space-between center")
+						md-input-container(flex)
+							md-icon(md-colors="{color: 'green'}")  &#xE873;
+							label Nombre del Instructor
+							input(ng-model="ctrl.instructores.item.nombre")
+					.descripcion-container
+						.titulo(layout="row")
+							md-icon(md-colors="{color: 'green'}") &#xe22b;
+							p Descripción del Instructor
+						text-angular(ng-model="ctrl.instructores.item.descripcion")
+					md-button.instructor.info(type="submit")
+						md-icon save

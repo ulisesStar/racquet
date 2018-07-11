@@ -1,0 +1,30 @@
+.instalacion(layout="row" layout-xs="column")
+	md-card.instalaciones-content
+		md-toolbar
+			.md-toolbar-tools
+				h4 Información Básica
+				span(flex)
+				md-button(ng-click="ctrl.instalaciones.habilitarEdicion()")
+					md-icon(ng-show="!ctrl.infomuestra") edit
+					md-icon(ng-show="ctrl.infomuestra") clear
+		md-card-content
+			.AntesEdicion(ng-show= "!ctrl.infomuestra")
+				h1 Nombre:
+				h3 {{ctrl.instalaciones.item.nombre}}
+				md-divider
+				h1 Descripcion:
+				.infoBasica-content(ng-bind-html="ctrl.instalaciones.item.descripcion")
+			.DespuesEdicion(ng-show= "ctrl.infomuestra")
+				form.instalacion-form(ng-submit="ctrl.instalaciones.editarInstalacion(ctrl.instalaciones.item)" layout="column")
+					.info(layout="row" layout-xs="column" layout-align="space-between center")
+						md-input-container(flex)
+							md-icon(md-colors="{color: 'green'}")  &#xE873;
+							label Nombre de la Instalación
+							input(ng-model="ctrl.instalaciones.item.nombre")
+					.descripcion-container
+						.titulo(layout="row")
+							md-icon(md-colors="{color: 'green'}") &#xe22b;
+							p Descripción de la Instalación
+						text-angular(ng-model="ctrl.instalaciones.item.descripcion")
+					md-button.instalacion.info(type="submit")
+						md-icon save

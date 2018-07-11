@@ -1,0 +1,35 @@
+md-card
+	md-card-content(layout="row")
+		md-icon search
+		md-autocomplete(
+		flex
+		md-selected-item="ctrl.selectedSalon" 
+		md-search-text-change="ctrl.BuscarSalonChange(ctrl.searchTextSalon)" 
+		md-search-text="ctrl.searchTextSalon" 
+		md-selected-item-change="ctrl.SalonSeleccionadoChange(item)" 
+		md-items="item in salones" 
+		md-item-text="item.nombre" 
+		md-min-length="0" 
+		placeholder="Nombre del Salón" 
+		md-menu-class="autocomplete-custom-template")
+			md-item-template
+				span {{item.nombre}}
+		md-button.md-raised(md-colors="{background: 'green'}" ng-click="ctrl.salones.nuevo()")
+			md-icon add
+	md-divider
+	md-list
+		md-list-item(ng-repeat="salon in ctrl.salones.items | filter : ctrl.searchTextSalon")
+			.md-list-item-text
+				strong {{salon.nombre}}
+			md-fab-toolbar(md-open="false" count="0"  md-direction="left" flex)
+				md-fab-trigger
+					md-button
+						md-icon more_vert
+				md-toolbar
+					md-fab-actions(layout="row")
+						md-button(md-colors="{background: 'green'}" ui-sref="salon({id:salon.id})")
+							md-icon edit
+						md-button(md-colors="{background: 'red'}" ng-click="salon.eliminar($index)")
+							md-icon delete
+			md-divider
+		cl-paging(cl-pages="ctrl.salones.paginas" cl-steps="4" cl-page-changed="ctrl.salones.cambioPagina()" cl-align="start start" cl-current-page="ctrl.salones.pagina")

@@ -1,0 +1,23 @@
+.contacto-container
+	.contacto-content
+		.tituloContacto
+			h1 Contáctanos
+		.formulario-container(ng-if="ctrl.entregado")
+			form.formulario(ng-submit="ctrl.contacto.nuevoProspecto(prospecto)" )
+				md-input-container(flex)
+					label Nombre
+					input(ng-model="prospecto.nombre" required)
+				md-input-container(flex)
+					label Email
+					input(ng-model="prospecto.correo" required)
+				md-input-container(flex)
+					label Teléfono
+					input(ng-model="prospecto.telefono" required)
+				md-input-container(flex)
+					label Mensaje
+					textarea(ng-model="prospecto.mensaje" md-maxlength="800" rows="5" required)
+				md-button(type="submit")
+					| Enviar
+		.entregado(ng-if="!ctrl.entregado")
+			h1 Gracias por contactarnos!!
+			h1 Pronto nos comunicaremos con usted.
