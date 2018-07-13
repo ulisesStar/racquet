@@ -1,5 +1,5 @@
 .instalaciones-container
-	.instalaciones-content(layout="row")
+	.instalaciones-content
 		.texto-container(layout="column")
 			.texto
 				p CONOCE Y ENCUENTRA
@@ -7,7 +7,7 @@
 			.descripcion
 				p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis iure, animi quod voluptas quas magnam magni, non omnis inventore, nam dolorem natus. Blanditiis cum, aperiam nam repellat earum, iure totam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis iure, animi quod voluptas quas magnam magni, non omnis inventore, nam dolorem natus. Blanditiis cum, aperiam nam repellat earum, iure totam.
 		.grid-instalaciones
-			md-grid-list(md-cols="2" md-row-height="120px" md-gutter-gt-md='16px' md-gutter-md='8px' md-gutter='4px')
+			md-grid-list(md-cols="3" md-row-height-gt-md="1:1" md-row-height="1:1" md-gutter-gt-md="16px" md-gutter-md="8px" md-gutter="4px")
 				md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="imagen in ctrl.instalaciones.items")
 					.capa
 					.imagen(style="background-image:url({{imagen.imagen[0].imagen}}); width: 100%; height : 100%;")

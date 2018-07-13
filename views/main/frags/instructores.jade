@@ -1,13 +1,13 @@
 .instructores-container
 	.instructores-content
 		.contenido
-			.texto-instructores(flex="50")
+			.texto-instructores
 				p NUESTROS
 				h1 INSTRUCTORES
 				.instructor-detalle
 					h3 {{ctrl.instructores.item.nombre}}
 					.descripcion(ng-bind-html="ctrl.instructores.item.descripcion")
-			.imagenes-instructores(flex="50")
+			.imagenes-instructores
 				md-grid-list(md-cols="3" md-row-height="170px" md-gutter-gt-md='10px' md-gutter-md='4px' md-gutter='4px')
 					md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="instructor in ctrl.instructores.items")
 						.capa
