@@ -46,6 +46,13 @@ app.controller('mainCtrl', function ($scope, $location, anchorSmoothScroll, $sta
   function buildToggler(componentId) {
     return function() {
       $mdSidenav(componentId).toggle();
+      var scrollMagicController = new ScrollMagic.Controller();
+
+      tl = new TimelineLite();
+
+      $('.linea').each(function(){
+        tl.fromTo(this, .3,  {  height : 0  } , { height : '100%' } )  
+      })
     };
   }
 

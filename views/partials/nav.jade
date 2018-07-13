@@ -13,8 +13,22 @@
 			md-button(ui-sref="instalaciones") Instalaciones
 			md-button(ui-sref="contacto") Contacto
 div.menu-home(layout="row")
-	md-sidenav.md-sidenav-left(md-component-id="left" md-whiteframe="4")
-		md-button(ng-click="toggleLeft()") X
+	md-sidenav.md-sidenav-left(md-component-id="left" md-whiteframe="4" style="background-image:url('img/historia.png')")
+		.cerrar(ng-click="toggleLeft()")
+			p X
+		.cortina
+		.lineas
+			.linea
+			.linea
+			.linea
+			.linea
+			.linea
 		md-list
 			md-list-item(ui-sref="{{seccion.state}}" ng-click="toggleLeft()" ng-repeat="seccion in secciones")
 					h4 {{seccion.nombre}}
+		.direcciones
+			.redes
+				img(src="img/facebook.png")
+				img(src="img/instagram.png")
+			p 01 229 921 1970
+			p Urano 400, Jardines de Mocambo, 94299 Boca del Río

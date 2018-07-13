@@ -1,8 +1,8 @@
+.portada-instalacion(style="background-image:url({{ctrl.instalacion.item.imagen[0].imagen}})")
+	.titulo
+		h1 {{ctrl.instalacion.item.nombre}}
 .instalacion-container
 	.instalacion-content
-		.portada(style="background-image:url({{ctrl.instalacion.item.imagen[0].imagen}}); width: 100%; height : 45%")
-		//-.titulo
-			h1 {{ctrl.instalacion.item.nombre}}
 		.informacion-container(layout="row")
 			.parteIzquierda
 				.textoIzquierda(layout="column")
@@ -19,4 +19,3 @@
 								.md-list-item-text(layout="row", ng-click="ctrl.instalacion.mandarAservicio(servicio.id)")
 									md-icon remove
 									p {{servicio.nombre}}
-						//-.descripcion(ng-bind-html="servicio.descripcion")

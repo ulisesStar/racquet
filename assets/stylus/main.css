@@ -12,6 +12,88 @@ main {
   min-height: 100vh;
   width: 100%;
 }
+md-sidenav {
+  overflow-x: hidden;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+md-sidenav .cortina {
+  width: 100%;
+  height: 100%;
+  background-color: #3a512b;
+  opacity: 0.8;
+  position: absolute;
+}
+md-sidenav .cerrar {
+  width: 100%;
+  z-index: 1;
+}
+md-sidenav .cerrar:focus {
+  outline: 0px;
+}
+md-sidenav .cerrar p {
+  color: #fff;
+  cursor: pointer;
+  font-size: 30px;
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 0;
+  margin-right: 10vw;
+}
+md-sidenav .lineas {
+  position: absolute;
+  top: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+md-sidenav .lineas .linea {
+  border-right: 1px solid rgba(255,255,255,0.4);
+  width: 100%;
+  transform: skew(-40deg, 0);
+}
+md-sidenav .lineas .linea:first-child {
+  border-left: 1px solid rgba(255,255,255,0.4);
+}
+md-sidenav md-list md-list-item,
+md-sidenav md-list .md-list-item-inner {
+  display: flex;
+  justify-content: center;
+}
+md-sidenav md-list md-list-item h4,
+md-sidenav md-list .md-list-item-inner h4 {
+  font-size: 35px;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+  margin: 15px;
+}
+md-sidenav .direcciones {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+md-sidenav .direcciones .redes {
+  margin-bottom: 10px;
+}
+md-sidenav .direcciones .redes img {
+  height: 26px;
+  width: 26px;
+  margin-right: 8px;
+}
+md-sidenav .direcciones p {
+  color: #fff;
+  font-size: 15px;
+  margin: 0;
+}
 .nav {
   height: 40px;
   position: fixed;
@@ -37,12 +119,22 @@ main {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 800px) {
+  .nav .nav-content .conoceMas {
+    display: none;
+  }
+}
 .nav .nav-content .conoceMas .md-button {
   margin: 0 15px;
   min-height: 30px;
   line-height: 30px;
   height: 30px;
   padding: 0 5px;
+}
+@media (max-width: 800px) {
+  .nav .nav-content .navegacion {
+    display: none;
+  }
 }
 .nav .nav-content .navegacion .md-button:first-child {
   border-right: 1px solid rgba(255,255,255,0.3);
@@ -81,8 +173,20 @@ footer .footer {
   justify-content: space-between;
   align-items: center;
 }
+@media (max-width: 800px) {
+  footer .footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
 footer .footer .md-button {
   width: 10%;
+}
+@media (max-width: 800px) {
+  footer .footer .md-button {
+    width: 38%;
+  }
 }
 footer .footer .md-button img {
   width: 100%;
@@ -92,6 +196,11 @@ footer .footer .secciones-container {
   cursor: pointer;
   width: 13%;
   justify-content: space-between;
+}
+@media (max-width: 800px) {
+  footer .footer .secciones-container {
+    display: none;
+  }
 }
 footer .footer .secciones-container .seccion-uno,
 footer .footer .secciones-container .seccion-dos {
@@ -115,6 +224,17 @@ footer .footer .textoFooter p {
   color: #fff;
   font-size: 12px;
 }
+@media (max-width: 800px) {
+  footer .footer .contactoFooter p,
+  footer .footer .textoFooter p {
+    text-align: center;
+  }
+}
+@media (max-width: 800px) {
+  footer .footer .textoFooter {
+    display: none;
+  }
+}
 footer .footer .contactoFooter {
   margin-right: 400px;
 }
@@ -122,9 +242,26 @@ footer .footer .contactoFooter .iconos {
   display: flex;
   flex-direction: row;
 }
+@media (max-width: 800px) {
+  footer .footer .contactoFooter .iconos {
+    justify-content: center;
+    align-items: center;
+  }
+}
 footer .footer .contactoFooter .iconos img {
-  height: 24px;
-  width: 24px;
+  height: 14px;
+  width: 14px;
+  margin-right: 5px;
+}
+@media (max-width: 800px) {
+  footer .footer .contactoFooter {
+    margin-right: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin-bottom: 15px;
+  }
 }
 .home-container {
   position: relative;
@@ -428,6 +565,22 @@ md-grid-list
 .instalaciones-container .instalaciones-content .grid-instalaciones md-grid-list md-grid-tile:hover .ir .md-button md-icon {
   margin-left: 10px;
 }
+.portada-instalacion {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+}
+.portada-instalacion .titulo h1 {
+  color: #fff;
+  font-size: 50px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
 .instalacion-container {
   position: relative;
   min-height: 100vh;
@@ -437,23 +590,6 @@ md-grid-list
   margin: 10vh 10vw;
   min-height: 80vh;
   width: 80vw;
-}
-.instalacion-container .instalacion-content .portada {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.instalacion-container .instalacion-content .titulo {
-  position: absolute;
-  margin: auto;
-  left: 25vw;
-  right: 0px;
-  top: 16vh;
-  bottom: 0px;
-}
-.instalacion-container .instalacion-content .titulo h1 {
-  color: #fff;
-  font-size: 4vw;
 }
 .instalacion-container .instalacion-content .informacion-container {
   position: relative;
@@ -469,19 +605,21 @@ md-grid-list
 }
 .instalacion-container .instalacion-content .informacion-container .parteIzquierda .textoIzquierda h1 {
   color: #808080;
-  font-size: 5vw;
   margin: 0;
+  font-size: 60px;
+  font-weight: 100;
 }
 .instalacion-container .instalacion-content .informacion-container .parteIzquierda .textoIzquierda .descripcion {
-  width: 100%;
+  width: 55%;
+  margin-left: 6vw;
 }
 .instalacion-container .instalacion-content .informacion-container .parteIzquierda .textoIzquierda .descripcion p {
-  font-size: 1.3vw;
+  font-size: 13px;
   text-align: justify;
 }
 .instalacion-container .instalacion-content .informacion-container .parteIzquierda .imagenIzquierda {
-  height: 75vh;
-  width: 32vw;
+  height: 72%;
+  width: 80%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -495,8 +633,8 @@ md-grid-list
   align-items: flex-end;
 }
 .instalacion-container .instalacion-content .informacion-container .parteDerecha .imagenDerecha {
-  height: 75vh;
-  width: 32vw;
+  height: 72%;
+  width: 80%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -511,13 +649,21 @@ md-grid-list
   margin: 0;
   color: #808080;
 }
-.instalacion-container .instalacion-content .informacion-container .parteDerecha .textoDerecha .servicios .md-list-item-text md-icon {
+.instalacion-container .instalacion-content .informacion-container .parteDerecha .textoDerecha .servicios md-list-item {
+  height: 6px;
+  min-height: inherit !important;
+}
+.instalacion-container .instalacion-content .informacion-container .parteDerecha .textoDerecha .servicios md-list-item .md-list-item-text md-icon {
   color: #8e2f2e;
 }
-.instalacion-container .instalacion-content .informacion-container .parteDerecha .textoDerecha .servicios .md-list-item-text p {
+.instalacion-container .instalacion-content .informacion-container .parteDerecha .textoDerecha .servicios md-list-item .md-list-item-text p {
   color: #8e2f2e;
   margin: 0;
-  font-size: 1.4vw;
+  font-size: 18px;
+  font-weight: 100;
+}
+.instalacion-container .instalacion-content .informacion-container .parteDerecha .textoDerecha .servicios md-list-item .md-list-item-text:hover {
+  border-bottom: 1px solid #8e2f2e;
 }
 .portada-servicio {
   height: 100vh;
@@ -535,11 +681,20 @@ md-grid-list
 }
 .portada-servicio .texto-experiencia h1 {
   color: #fff;
-  font-size: 4vw;
+  font-size: 80px;
   font-weight: 100;
+  margin: 0;
 }
 .portada-servicio .texto-experiencia h4 {
   color: #fff;
+  margin: 0;
+  text-align: right;
+  margin-right: 130px;
+  font-size: 16px;
+  font-weight: 100;
+}
+.portada-servicio .texto-experiencia h4:focus {
+  outline: 0px;
 }
 .servicio-container {
   position: relative;
@@ -563,17 +718,31 @@ md-grid-list
 }
 .servicio-container .servicio-content .parteSuperior .texto h1 {
   color: #3a512b;
-  font-size: 40px;
+  font-size: 80px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin: 0;
+}
+.servicio-container .servicio-content .parteSuperior .texto .descripcion {
+  width: 80%;
+}
+.servicio-container .servicio-content .parteSuperior .texto .descripcion p {
+  font-size: 14px;
 }
 .servicio-container .servicio-content .parteSuperior .imagen {
-  width: 50vw;
-  height: 50vh;
+  width: 50%;
+  height: 70%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 .servicio-container .servicio-content .parteInferior .instructores {
   margin-top: 10vh;
+}
+.servicio-container .servicio-content .parteInferior .instructores h3 {
+  font-size: 24px;
+  font-weight: 100;
+  margin: 5px;
 }
 .servicio-container .servicio-content .parteInferior .instructores md-grid-list md-grid-tile {
   cursor: pointer;
@@ -594,6 +763,8 @@ md-grid-list
   transition-delay: 0 ease-in-out;
 }
 .servicio-container .servicio-content .parteInferior .instructores md-grid-list md-grid-tile .imagen {
+  width: 100%;
+  height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -1082,12 +1253,14 @@ md-grid-list
 }
 .portada-salon .texto-experiencia p {
   color: #fff;
-  font-size: 11px;
+  font-size: 12px;
 }
 .portada-salon .texto-experiencia h1 {
   color: #fff;
-  font-size: 4vw;
+  font-size: 80px;
   margin: 0;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 .portada-salon .texto-experiencia .descripcion {
   text-align: justify;

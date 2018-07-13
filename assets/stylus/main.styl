@@ -36,6 +36,7 @@ animation(animation, duration = 1s, delay = 0s)
 	box-sizing border-box
 	font-family Cabin
 
+
 md-grid-list
 	md-grid-tile
 		background-repeat no-repeat
@@ -46,6 +47,79 @@ main
 	position relative
 	min-height 100vh
 	width 100%
+	
+md-sidenav
+	overflow-x hidden
+	justify-content center
+	align-items center
+	background-position center
+	background-repeat no-repeat
+	background-size cover
+	.cortina
+		width 100%
+		height 100%
+		background-color verde
+		opacity 0.8
+		position absolute
+	.cerrar
+		width 100%
+		z-index 1
+		&:focus
+			outline 0px
+		p 
+			color white
+			cursor pointer
+			font-size 30px
+			display flex
+			flex-direction row-reverse
+			margin 0
+			margin-right 10vw
+			
+	.lineas
+		position absolute
+		top 0px
+		margin 0px
+		width 100%
+		height 100%
+		display flex
+		flex-direction row
+		.linea
+			&:first-child
+				border-left 1px solid rgba(255, 255, 255, .4)
+			border-right 1px solid rgba(255, 255, 255, .4)
+			width 100%
+			transform skew(-40deg, 0)
+	md-list
+		md-list-item
+		.md-list-item-inner
+			display flex
+			justify-content center
+			h4
+				font-size 35px
+				font-weight 100
+				text-transform uppercase
+				color white
+				text-align center
+				margin 15px
+	.direcciones
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		z-index 1
+		.redes
+			margin-bottom 10px
+			img
+				height 26px
+				width 26px
+				margin-right 8px
+		p
+			color white
+			font-size 15px
+			margin 0
+			
+		
+
 
 
 .nav
@@ -69,6 +143,8 @@ main
 			justify-content center
 			align-items center
 		.conoceMas
+			@media mobile
+				display none
 			.md-button
 				margin 0 15px
 				min-height 30px
@@ -76,6 +152,8 @@ main
 				height 30px
 				padding 0 5px
 		.navegacion
+			@media mobile
+				display none
 			.md-button:first-child
 				border-right 1px solid rgba(255, 255, 255, .3)
 		h3
@@ -104,15 +182,23 @@ main
 footer
 	background-color footerColor
 	.footer
+		@media mobile
+			flex-direction column
+			justify-content center
+			align-items center
 		display flex
 		flex-direction row
 		justify-content space-between
 		align-items center
 		.md-button
+			@media mobile
+				width 38%
 			width 10%
 			img
 				width 100%
 		.secciones-container
+			@media mobile
+				display none
 			display flex
 			cursor pointer
 			width 13%
@@ -132,15 +218,30 @@ footer
 				margin 2
 				color white
 				font-size 12px
-			
+				@media mobile
+					text-align center
+		.textoFooter
+			@media mobile
+				display none
 		.contactoFooter
 			margin-right 400px
 			.iconos
+				@media mobile
+					justify-content center
+					align-items center
 				display flex
 				flex-direction row
 				img
-					height 24px
-					width 24px
+					height 14px
+					width 14px
+					margin-right 5px
+			@media mobile 
+				margin-right inherit
+				display flex
+				flex-direction column
+				justify-content center
+				align-content center
+				margin-bottom 15px
 .home-container
 	position relative
 	min-height 100vh
@@ -378,6 +479,22 @@ footer
 								md-icon
 									margin-left 10px
 
+
+.portada-instalacion
+	background-position center
+	background-repeat no-repeat
+	background-size cover
+	display flex
+	justify-content center
+	align-items center
+	width 100%
+	height 50%
+	.titulo
+		h1
+			color white
+			font-size 50px
+			text-transform uppercase
+			font-weight 800
 .instalacion-container
 	position relative
 	min-height 100vh
@@ -386,21 +503,6 @@ footer
 		margin 10vh 10vw
 		min-height 80vh
 		width 80vw
-		.portada
-			background-position center
-			background-repeat no-repeat
-			background-size cover
-		.titulo
-			position absolute
-			margin auto
-			left 25vw
-			right 0px
-			top 16vh
-			bottom 0px
-
-			h1
-				color white
-				font-size 4vw
 		.informacion-container
 			position relative
 			display flex
@@ -414,17 +516,18 @@ footer
 				.textoIzquierda
 					h1
 						color grey
-						font-size 5vw
 						margin 0
+						font-size 60px
+						font-weight 100
 					.descripcion
-						width 100%
-
+						width 55%
+						margin-left 6vw
 						p
-							font-size 1.3vw
+							font-size 13px
 							text-align justify
 				.imagenIzquierda
-					height 75vh
-					width 32vw
+					height 72%
+					width 80%
 					background-position center
 					background-repeat no-repeat
 					background-size cover
@@ -436,8 +539,8 @@ footer
 				flex-direction column
 				align-items flex-end
 				.imagenDerecha
-					height 75vh
-					width 32vw
+					height 72%
+					width 80%
 					background-position center
 					background-repeat no-repeat
 					background-size cover
@@ -450,13 +553,19 @@ footer
 						margin 0
 						color grey
 					.servicios
-						.md-list-item-text
-							md-icon
-								color rojo
-							p
-								color rojo
-								margin 0
-								font-size 1.4vw
+						md-list-item
+							height 6px
+							min-height inherit !important
+							.md-list-item-text
+								md-icon
+									color rojo
+								p
+									color rojo
+									margin 0
+									font-size 18px
+									font-weight 100
+								&:hover
+									border-bottom 1px solid #8e2f2e
 .portada-servicio
 	height 100vh
 	width 100vw
@@ -471,10 +580,18 @@ footer
 		bottom 0
 		h1
 			color white
-			font-size 4vw
+			font-size 80px
 			font-weight 100
+			margin 0
 		h4
 			color white
+			margin 0
+			text-align right
+			margin-right 130px
+			font-size 16px
+			font-weight 100
+			&:focus
+				outline 0px
 .servicio-container
 	position relative
 	min-height 100vh
@@ -494,16 +611,27 @@ footer
 				margin 0
 				h1
 					color verde
-					font-size 40px
+					font-size 80px
+					text-transform uppercase
+					font-weight 400
+					margin 0
+				.descripcion
+					width 80%
+					p
+						font-size 14px
 			.imagen
-				width 50vw
-				height 50vh
+				width 50%
+				height 70%
 				background-repeat  no-repeat
 				background-position center
 				background-size cover
 		.parteInferior
 			.instructores
 				margin-top 10vh
+				h3
+					font-size 24px
+					font-weight 100
+					margin 5px
 				md-grid-list
 					md-grid-tile
 						cursor pointer
@@ -519,6 +647,8 @@ footer
 							left -50%
 							transition(500ms , 0)
 						.imagen
+							width 100%
+							height 100%
 							background-repeat no-repeat
 							background-size cover
 							background-position center
@@ -860,11 +990,13 @@ footer
 		width 52vw
 		p
 			color white
-			font-size 11px
+			font-size 12px
 		h1
 			color white
-			font-size 4vw
+			font-size 80px
 			margin 0
+			font-weight 400
+			text-transform uppercase
 		.descripcion
 			text-align justify
 			color white
