@@ -22,6 +22,8 @@ app.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
 			template('main', 'instructor'),
 			template('main', 'contacto'),
 			template('main', 'historia'),
+			template('main', 'noticias'),
+			template('main', 'noticia'),
 			template('admin', 'home'),
 			template('admin', 'servicios'),
 			template('admin', 'servicio'),

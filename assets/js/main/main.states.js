@@ -52,6 +52,8 @@ app.config([
 		.state('salon', template('main', ['salon'], '/salon/:id', {'id': null}))
 		.state('contacto', template('main', ['contacto'], '/contacto'))
 		.state('historia', template('main', ['historia'], '/historia'))
+		.state('noticias', template('main', ['noticias'], '/noticias'))
+		.state('noticia', template('main', ['noticia'], '/noticia/:id', {'id': null}))
 
 	}
 ]);

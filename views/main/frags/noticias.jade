@@ -1,0 +1,15 @@
+.noticias-container
+	.noticias-content
+		.titulo
+			h1 Noticias
+		.noticias(ng-repeat="noticia in ctrl.noticias.items")
+			.contenedor
+				.nombre-noticia
+					h1 {{noticia.nombre}}
+				.resena(ng-bind-html="noticia.resena")
+				md-button(ng-click="ctrl.noticias.mandarAnoticia(noticia.id)")
+					span Leer más
+					md-icon arrow_right_alt
+			.noticia-portada
+				img(src="{{noticia.imagen[0].imagen}}")
+			

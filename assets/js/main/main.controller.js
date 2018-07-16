@@ -77,6 +77,10 @@ app.controller('mainCtrl', function ($scope, $location, anchorSmoothScroll, $sta
             nombre: 'Instructores',
             state: 'instructores'
         },
+        {
+            nombre: 'Noticias',
+            state: 'noticias'
+        },
          {
             nombre: 'Contacto',
             state: 'contacto'
