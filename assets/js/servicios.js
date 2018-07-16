@@ -105,6 +105,8 @@ app.service('Noticia', function() {
     this.editar = noticia => axios.put('/data/noticia/' + noticia.id, noticia)
     this.imagenes = idNoticia => axios('/data/noticia/imagenes/' + idNoticia)
     this.obtenerParagrid = limite => axios('/data/noticiaXimagenes/obtenerParagrid/' + limite)
+    this.imagenesOneTodas = idNoticia => axios('/data/noticia/imagenesOneTodas/' + idNoticia)
+
 
 });
 

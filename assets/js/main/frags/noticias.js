@@ -23,8 +23,8 @@ app.controller('noticiasCtrl', function($scope, $rootScope, $http, $mdDialog, md
 			console.log(self.noticias.items)
 		}
 
-		mandarAnoticia(id){
-			$state.go('noticia',{id:id})
+		mandarAnoticia(noticia){
+			$state.go('noticia',{id:noticia})
 		}
 	}
 

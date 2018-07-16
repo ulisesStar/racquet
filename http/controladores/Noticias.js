@@ -27,3 +27,8 @@ ex.imagenes = (req, res, next) =>
 
 ex.obtenerParagrid =  (req, res, next) => noticia.findAll({ limit: Number(req.params.limite) })
     .then(response => res.status(200).jsonp(response))
+
+ex.imagenesOneTodas = (req, res, next) =>
+    noticia.findById(req.params.idNoticia)
+    .then(noticia => noticia.getImagen({where: {idNoticia: req.params.idNoticia}}))
+    .then(result => res.status(200).json(result))

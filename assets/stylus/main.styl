@@ -1272,33 +1272,120 @@ footer
 			margin 0
 			
 			h1
+				@media mobile
+					font-size 20px
 				font-size 35px
 				font-weight 800
 				color verde
 				
 		.noticias
+			@media mobile
+				flex-direction column
 			display flex
 			flex-direction row
 			border-bottom 1px solid verde
 			margin-top 2vh
 			justify-content center
 			.contenedor
+				@media mobile
+					width 100%
 				display flex
 				flex-direction column
 				width 50%
 				.nombre-noticia
 					h1
+						@media mobile
+							font-size 15px
 						font-size 22px
 						font-weight 400
 				.resena
+					@media mobile
+						width 100%
 					width 80%
 					text-align justify
 					p 
+						@media mobile
+							font-size 11px
 						font-size 14px
+				.mandar
+					bottom 1px
+					width 100%
+					height 30px
+					.md-button
+						min-height 0px
+						height 25px
+						background-color verde
+						margin 0px
+						min-width 0px
+						border-radius 30px
+						display flex
+						justify-content flex-start
+						line-height 25px
+						color white
+						text-transform inherit
+						padding 0 5px
+						margin 0 5px
+
+						md-icon
+							transition(500ms , 0)
+							margin 0px
+							color white
+				&:hover
+					.mandar
+						.md-button
+							md-icon
+								margin-left 10px
+						
 			.noticia-portada
+				@media mobile
+					width 100%
 				Width 30%
 				height 25%
 				margin-bottom 10px
 				img
 					width 100%
 					height 100%
+.noticia-container
+	position relative
+	min-height 100vh
+	.noticia-content
+		position relative
+		margin 10vh 10vw
+		min-height 80vh
+		width 80vw
+		display flex
+		flex-direction column
+		justify-content center
+		align-items center
+		.titulo
+			h1
+				font-size 35px
+				font-weight 800
+				color verde
+		.resena
+			width 80%
+			text-align justify
+			p 
+				font-size 16px
+		.imagen-portada
+			width 50%
+			height 50%
+			img
+				width 100%
+				height 100%
+		.contenedor
+			position relative
+			.descripcion
+			.imagen-arriba
+				width 35%
+				height 37%
+				img
+					width 100%
+					height 100%
+			.imagen-abajo
+				width 35%
+				height 37%
+				img
+					width 100%
+					height 100%
+					

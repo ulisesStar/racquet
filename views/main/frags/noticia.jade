@@ -1,0 +1,13 @@
+.noticia-container
+	.noticia-content
+		.titulo
+			h1{{ctrl.noticia.item.nombre}}
+		.resena(ng-bind-html="ctrl.noticia.item.resena")
+		.imagen-portada
+			img(src="{{ctrl.noticia.item.imagenes[0].imagen}}")
+		.contenedor(style="border: 1px solid black; width:100%; height:100%")
+			.imagen-arriba
+				img(src="{{ctrl.noticia.item.imagenes[1].imagen}}")
+			.descripcion(ng-bind-html="ctrl.noticia.item.descripcion")
+			.imagen-abajo
+				img(src="{{ctrl.noticia.item.imagenes[2].imagen}}")

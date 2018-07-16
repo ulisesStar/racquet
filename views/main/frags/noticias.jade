@@ -7,9 +7,10 @@
 				.nombre-noticia
 					h1 {{noticia.nombre}}
 				.resena(ng-bind-html="noticia.resena")
-				md-button(ng-click="ctrl.noticias.mandarAnoticia(noticia.id)")
-					span Leer más
-					md-icon arrow_right_alt
+				.mandar
+					md-button(ng-click="ctrl.noticias.mandarAnoticia(noticia.id)")
+						span Leer más
+						md-icon arrow_right_alt
 			.noticia-portada
 				img(src="{{noticia.imagen[0].imagen}}")
 			

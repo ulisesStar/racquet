@@ -16,4 +16,7 @@ route.route('/data/noticia/imagenes/:idNoticia')
 route.route('/data/noticiaXimagenes/obtenerParagrid/:limite')
         .get(x.obtenerParagrid);
 
+route.route('/data/noticia/imagenesOneTodas/:idNoticia')
+        .get(x.imagenesOneTodas);
+
 module.exports = route;
