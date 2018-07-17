@@ -32,3 +32,9 @@ ex.imagenesOneTodas = (req, res, next) =>
     noticia.findById(req.params.idNoticia)
     .then(noticia => noticia.getImagen({where: {idNoticia: req.params.idNoticia}}))
     .then(result => res.status(200).json(result))
+
+
+ex.obtenerDatos = (req, res, next) =>
+    noticia.findById(req.params.idNoticia)
+    .then(noticia => noticia.getContenido())
+    .then(result => res.status(200).json(result))

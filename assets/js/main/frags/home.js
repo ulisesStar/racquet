@@ -6,14 +6,15 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 
 	class tipo_{
 		constructor(arg){
-			this.todo = true
 			this.key = arg
 			this.nombre = _.capitalize(arg)
 			this.check = false
 		}
 		cambio(){
 
-			this.todo = false
+
+
+			self.tipos.todo = false
 			self.tipos.forEach(n => n.check = n.key !== this.key ? false : true )
 
 			Object.entries(self.grids.peticion)
@@ -29,6 +30,10 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 	class Grids_{
 		constructor(){
 			this.items = []
+			this.default()
+		}
+
+		default(){
 			this.peticion = {
 				eventos : 2,
 				instalaciones : 2,
@@ -37,6 +42,9 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 				salones : 2
 			}
 			this.ruleThemAll()
+
+			self.tipos.forEach(n => n.check = false)
+
 		}
 
 		async ruleThemAll(){
@@ -51,7 +59,37 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 			Promise.all(
 				tipos.map(async (n) => await this.obtener(n.nombre, n.servicio).then(response =>  !_.isNull(response) ? response.map(x => n.clase(x)   ) : null )))
 			.then(response => _.flatten(response).filter(n => !_.isNull(n),))
-			.then(response => this.items = response.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)).reverse())
+			.then(response => response.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)).reverse())
+			.then(response => {
+
+				// this.items = response
+
+				let tipos = _.uniqBy(response, 'tipo').map(n => n.tipo).map(n => new cuadro_(n))
+
+				var cuenta1 = 0
+				var	cuenta2 = 0
+				var algo = []
+
+				_.times(  response.length + (tipos.length / 2), (n) => {
+
+					if((n % 2 ) === 0){
+
+						algo.push(response[cuenta1])
+						cuenta1++
+
+					}else{
+						if(cuenta2 < tipos.length)
+							algo.push(tipos[cuenta2])
+							cuenta2++
+					}
+
+				})
+
+				this.items = algo
+
+				console.log(tipos)
+
+			})
 			.then(() => $scope.$digest())
 
 		}
@@ -76,7 +114,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 
 		tamano(){
 
-			let random = _.random(3, 4)
+			let random = _.random(3, 5)
 			return {
 				x : random - 1 ,
 				y : random
@@ -86,8 +124,47 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 	}
 	self.grids = new Grids_()
 
+	class cuadro_ {
+		constructor(x) {
+			this.tamanio = {
+				x : 2,
+				y : 2
+			}
+			switch (x) {
+				case 'salon':
+					this.color = '#3a512b '
+					this.nombre = 'Salones'
+					this.ir = () => $state.go('salones')
+					break;
+				case 'noticia':
+					this.color = '#3a512b'
+					this.nombre = 'Noticias'
+					this.ir = () => $state.go('noticias')
+					break;
+				case 'servicio':
+					this.color = '#8e2f2e '
+					this.nombre = 'Servicios'
+					this.ir = () => $state.go('servicios')
+					break;
+				case 'instalacion':
+					this.color = '#8e2f2e '
+					this.nombre = 'Instalaciones'
+					this.ir = () => $state.go('instalaciones')
+					break;
+				case 'evento':
+					this.color = '#8e2f2e '
+					this.nombre = 'Eventos'
+					this.ir = () => $state.go('eventos')
+					break;
+				default:
+
+			}
+		}
+	}
+
 	class noticia_{
 		constructor(arg){
+			this.tipo = 'noticia'
 			this.id = arg.id,
 			this.nombre = arg.nombre,
 			this.obtener()
@@ -101,11 +178,15 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 			.then(res => this.imagen = res.data)
 			.then(() => $scope.$digest())
 		}
+		ir(){
+			$state.go('noticia', {id : this.id})
+		}
 
 	}
 
 	class instalacion_{
 		constructor(arg){
+			this.tipo = 'instalacion'
 			this.id = arg.id,
 			this.nombre = arg.nombre,
 			this.obtener()
@@ -119,11 +200,15 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 			.then(() => $scope.$digest())
 
 		}
+		ir(){
+			$state.go('instalacion', {id : this.id})
+		}
 
 	}
 
 	class servicio_{
 		constructor(arg){
+			this.tipo = 'servicio'
 			this.id = arg.id,
 			this.nombre = arg.nombre,
 			this.obtener()
@@ -137,11 +222,15 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 			.then(() => $scope.$digest())
 
 		}
+		ir(){
+			$state.go('servicio', {id : this.id})
+		}
 
 	}
 
 	class salon_{
 		constructor(arg){
+			this.tipo = 'salon'
 			this.id = arg.id,
 			this.nombre = arg.nombre,
 			this.obtener()
@@ -155,11 +244,15 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 			.then(() => $scope.$digest())
 
 		}
+		ir(){
+			$state.go('salon', {id : this.id})
+		}
 
 	}
 
 	class evento_{
 		constructor(arg){
+			this.tipo = 'evento'
 			this.id = arg.id,
 			this.nombre = arg.nombre,
 			this.obtener()
@@ -173,6 +266,9 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 			.then(res => this.imagen =  res.data)
 			.then(() => $scope.$digest())
 
+		}
+		ir(){
+			$state.go('evento', {id : this.id})
 		}
 
 	}
@@ -220,16 +316,20 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 			Instalacion.imagenes(this.id)
 			.then(res => this.imagen = res.data)
 			.then(() => $scope.$digest())
+			.then(() => slider())
 		}
 	}
 
-
-	 $('.slider').slick({
-		dots: true,
-		infinite: true,
-		speed: 300,
-		slidesToShow: 1,
-		adaptiveHeight: true
-	  })
+	function slider(){
+		$('.slider').slick({
+   		dots: true,
+   		infinite: true,
+   		speed: 300,
+   		slidesToShow: 1,
+   		adaptiveHeight: true,
+		autoplay: true,
+		autoplaySpeed: 2000,
+   	  })
+	}
 
 });

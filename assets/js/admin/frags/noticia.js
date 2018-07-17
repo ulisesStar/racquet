@@ -1,14 +1,16 @@
 var app = angular.module('myapp');
 
-app.controller('noticiaCtrl', function($scope, $rootScope, $http, alertas, $mdDialog, mdDialog, $timeout, $mdSidenav, $state, $stateParams, Noticia, Tag, Imagen) {
-	
+app.controller('noticiaCtrl', function($scope, $rootScope, $http, alertas, $mdDialog, mdDialog, $timeout, $mdSidenav, $state, $stateParams, Noticia, Tag, Imagen, Contenido) {
+
 	var self = this
 
     var id = $stateParams.id
 
     class NoticiaOne_{
 
-        constructor() {}
+        constructor() {
+			this.obtenerContenido()
+		}
 
         obtener(){
             Noticia.one(id)
@@ -22,9 +24,19 @@ app.controller('noticiaCtrl', function($scope, $rootScope, $http, alertas, $mdDi
             .then(res => alertas.mostrarToastEstandar("Guardado exitosamente!!!"))
             .then(() => $scope.$digest())
 
+			Contenido.crear(Object.assign(this.contenido, { idNoticia : id}))
+			
+
             self.infomuestra = false
 
         }
+
+		obtenerContenido(){
+			Noticia.obtenerDatos(id)
+			.then(response => this.contenido = response.data)
+			.then(response => $scope.$digest())
+
+		}
 
         obtenerImagenes(id){
 
@@ -37,7 +49,7 @@ app.controller('noticiaCtrl', function($scope, $rootScope, $http, alertas, $mdDi
 
     self.noticias = new NoticiaOne_()
     self.noticias.obtener()
-     self.noticias.obtenerImagenes(id)
+    self.noticias.obtenerImagenes(id)
 
 
     class Tag_{
@@ -55,7 +67,7 @@ app.controller('noticiaCtrl', function($scope, $rootScope, $http, alertas, $mdDi
             obj.nombre = text;
             console.log(this.items)
 
-            return this.items.find(n => n.nombre == text) 
+            return this.items.find(n => n.nombre == text)
 
              ? (
                 this.filtrar(text)
@@ -74,7 +86,7 @@ app.controller('noticiaCtrl', function($scope, $rootScope, $http, alertas, $mdDi
                 Tag.ligar(res.data.id, id).then(res => console.log(res))
 
             })
-            
+
         }
 
         remover(item){

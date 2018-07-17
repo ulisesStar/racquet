@@ -1,16 +1,16 @@
 app.controller('mainCtrl', function ($scope, $location, anchorSmoothScroll, $state, mdDialog, $timeout, $mdSidenav) {
- 
+
   $scope.hola = () => {
 
     console.log("click")
   }
 
   $scope.mandarMas = (eID) =>{
-		
+
 		$location.hash('bottom');
 		anchorSmoothScroll.scrollTo(eID);
 
-  } 
+  }
 
   $scope.mandaAhome = () => {
   	$state.go('home')
@@ -51,7 +51,7 @@ app.controller('mainCtrl', function ($scope, $location, anchorSmoothScroll, $sta
       tl = new TimelineLite();
 
       $('.linea').each(function(){
-        tl.fromTo(this, .3,  {  height : 0  } , { height : '100%' } )  
+        tl.fromTo(this, .3,  {  height : 0  } , { height : '100%' } )
       })
     };
   }
@@ -80,6 +80,10 @@ app.controller('mainCtrl', function ($scope, $location, anchorSmoothScroll, $sta
         {
             nombre: 'Noticias',
             state: 'noticias'
+        },
+        {
+            nombre: 'Historia',
+            state: 'historia'
         },
          {
             nombre: 'Contacto',

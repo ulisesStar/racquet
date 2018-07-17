@@ -1,6 +1,6 @@
 mobile = "(max-width: 800px)"
 verde = #3a512b
-footerColor=#8e2e2e
+footerColor = #8e2e2e
 rojo = #8e2f2e
 
 transition(duracion, delay)
@@ -47,7 +47,7 @@ main
 	position relative
 	min-height 100vh
 	width 100%
-	
+
 md-sidenav
 	overflow-x hidden
 	justify-content center
@@ -68,7 +68,7 @@ md-sidenav
 		z-index 1
 		&:focus
 			outline 0px
-		p 
+		p
 			color white
 			cursor pointer
 			font-size 30px
@@ -76,7 +76,7 @@ md-sidenav
 			flex-direction row-reverse
 			margin 0
 			margin-right 10vw
-			
+
 	.lineas
 		@media mobile
 			display none
@@ -101,7 +101,7 @@ md-sidenav
 			h4
 				@media mobile
 					font-size 19px
-					margin 7px 
+					margin 7px
 				font-size 35px
 				font-weight 100
 				text-transform uppercase
@@ -126,8 +126,8 @@ md-sidenav
 			margin 0
 			@media mobile
 				font-size 13px
-			
-		
+
+
 
 
 
@@ -244,7 +244,7 @@ footer
 					height 14px
 					width 14px
 					margin-right 5px
-			@media mobile 
+			@media mobile
 				margin-right inherit
 				display flex
 				flex-direction column
@@ -254,11 +254,12 @@ footer
 .home-container
 	position relative
 	min-height 100vh
+	display flex
+	justify-content center
 	.home-content
 		position relative
-		margin 10vh 10vw
 		min-height 80vh
-		width 80vw
+		width 90vw
 		section
 			&.grid-container
 				margin-top 10%
@@ -344,11 +345,12 @@ footer
 										margin-left 10px
 
 			&.club
-				display flex
-				flex-direction row
+				min-height 100vh
 				@media mobile
 					flex-direction column
-				min-height 100vh
+
+				display flex
+				flex-direction row
 				.texto
 					@media mobile
 						max-width 100%
@@ -374,13 +376,35 @@ footer
 							font-size 16px
 							text-align justify
 							padding 10px
+
+				.slider-content
+					width 100%
+					.slider
+						
+						.slick-list
+							height inherit
+						.slide
+							height inherit
+							display flex
+							justify-content center
+							align-items center
+							.imagen
+								width 100%
+								height 400px
+								background-size cover
+								background-repeat no-repeat
+								background-position center
+								p
+									color white
+									font-size 24px
+
 			&.ambiente
 				md-grid-list
 					transform scale(0.9) !important
 				min-height 100vh
 				.texto
 					h1
-						@media mobile 
+						@media mobile
 							font-size 40px
 						color gray
 						font-size 80px
@@ -691,7 +715,7 @@ footer
 					p
 						font-size 14px
 			.imagen
-				@media mobile 
+				@media mobile
 					width 100%
 					height 50%
 				width 50%
@@ -859,7 +883,7 @@ footer
 							.md-button
 								md-icon
 									margin-left 10px
-									
+
 
 					.ir
 						position absolute
@@ -927,7 +951,7 @@ footer
 						text-align justify
 						color dimgrey
 						p
-							@media mobile 
+							@media mobile
 								font-size 10px
 			.imagenes-instructores
 				@media mobile
@@ -1008,7 +1032,7 @@ footer
 					font-weight 100
 					margin 0
 			.descripcion
-				@media mobile 
+				@media mobile
 					width 100%
 				width 70%
 				p
@@ -1107,7 +1131,7 @@ footer
 	background-repeat  no-repeat
 	background-position center
 	background-size cover
-	@media mobile 
+	@media mobile
 		display flex
 		justify-content center
 		flex-direction column
@@ -1131,7 +1155,7 @@ footer
 			color white
 			font-size 12px
 		h1
-			@media mobile 
+			@media mobile
 				font-size 60px
 			color white
 			font-size 80px
@@ -1215,7 +1239,7 @@ footer
 			@media mobile
 				flex-direction column
 			.texto-container
-				@media mobile 
+				@media mobile
 					width 100%
 				Width 40%
 				.texto
@@ -1270,14 +1294,14 @@ footer
 			text-transform uppercase
 			margin-bottom 60px
 			margin 0
-			
+
 			h1
 				@media mobile
 					font-size 20px
 				font-size 35px
 				font-weight 800
 				color verde
-				
+
 		.noticias
 			@media mobile
 				flex-direction column
@@ -1303,7 +1327,7 @@ footer
 						width 100%
 					width 80%
 					text-align justify
-					p 
+					p
 						@media mobile
 							font-size 11px
 						font-size 14px
@@ -1335,7 +1359,7 @@ footer
 						.md-button
 							md-icon
 								margin-left 10px
-						
+
 			.noticia-portada
 				@media mobile
 					width 100%
@@ -1365,7 +1389,7 @@ footer
 		.resena
 			width 80%
 			text-align justify
-			p 
+			p
 				font-size 16px
 		.imagen-portada
 			width 50%
@@ -1388,4 +1412,3 @@ footer
 				img
 					width 100%
 					height 100%
-					

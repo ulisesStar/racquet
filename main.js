@@ -50,6 +50,7 @@ app.use('/', require('./http/rutas/Salones'));
 app.use('/', require('./http/rutas/Servicios'));
 app.use('/', require('./http/rutas/Apartados'));
 app.use('/', require('./http/rutas/Tags'));
+app.use('/', require('./http/rutas/Contenidos'));
 
 
 

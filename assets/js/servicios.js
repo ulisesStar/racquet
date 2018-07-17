@@ -106,7 +106,18 @@ app.service('Noticia', function() {
     this.imagenes = idNoticia => axios('/data/noticia/imagenes/' + idNoticia)
     this.obtenerParagrid = limite => axios('/data/noticiaXimagenes/obtenerParagrid/' + limite)
     this.imagenesOneTodas = idNoticia => axios('/data/noticia/imagenesOneTodas/' + idNoticia)
+    this.obtenerDatos = idNoticia => axios('/data/noticia/obtenerDatos/' + idNoticia)
 
+
+});
+
+app.service('Contenido', function() {
+
+    this.crear = contenido => axios.post('/data/contenido', contenido)
+    this.obtener = () => axios('/data/contenido')
+    this.one = id => axios('/data/contenido/' + id)
+    this.eliminar = id => axios.delete('/data/contenido/' + id)
+    this.editar = contenido => axios.put('/data/contenido/' + contenido.id, contenido)
 
 });
 
@@ -128,7 +139,7 @@ app.service('Apartado', function() {
     this.crear = apartado => axios.post('/data/apartado', apartado)
     this.obtener = () => axios('/data/apartado')
     this.one = id => axios('/data/apartado/' + id)
-    this.editar = id => axios.put('/data/apartado/' + id)
+    this.editar = id => axios.put('/data/apartado/' + id   )
     this.eliminar = id => axios.delete('/data/apartado/' + id)
     this.editar = apartado => axios.put('/data/apartado/' + apartado.id, apartado)
     this.obtenerFechas = id => axios('/data/apartado/fechasXsalones/' + id)
