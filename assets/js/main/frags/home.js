@@ -150,7 +150,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 					this.ir = () => $state.go('instalaciones')
 					break;
 				case 'evento':
-					this.color = 'blue '
+					this.color = '#30898c '
 					this.nombre = 'Eventos'
 					this.ir = () => $state.go('eventos')
 					break;

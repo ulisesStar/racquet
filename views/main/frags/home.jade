@@ -4,7 +4,7 @@
 			.opciones
 				md-checkbox(ng-model="ctrl.tipos.todo" ng-change="ctrl.grids.default()") Todo
 				md-checkbox(ng-repeat="tipo in ctrl.tipos"  ng-model="tipo.check" ng-change="tipo.cambio()") {{tipo.nombre}}
-			md-grid-list( md-cols='12' md-cols-sm="8" md-cols-md='14' md-row-height='4:3' md-gutter-md='8px' md-gutter='4px')
+			md-grid-list( md-cols='12' md-cols-md='14' md-row-height='4:3' md-gutter-md='8px' md-gutter='4px')
 				md-grid-tile(ng-repeat='grid in ctrl.grids.items track by $index' md-colspan='{{grid.tamanio.y}}' md-rowspan='{{grid.tamanio.x}}' ng-click="grid.ir()")
 					.contenido(ng-if="grid.tipo")
 						.capa
@@ -21,11 +21,10 @@
 					.contenido(ng-if="!grid.tipo" style="background-color : {{grid.color}}" ng-click="grid.ir()")
 						.capa
 						.center
-							h1(style="color : white; text-align: center") {{grid.nombre}}
+							h1(style="color : white; text-align: center;") {{grid.nombre}}
 						
 					
-			.div#club
-		section.club(layout="row" layout-align="center center")
+		section.club#club(layout="row" layout-align="center center")
 			.texto(flex="40")
 				p BIENVENIDO AL
 				h1 CLUB

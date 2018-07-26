@@ -1,4 +1,4 @@
-mobile = "(max-width: 800px)"
+mobile = "(max-width: 1024px)"
 verde = #3a512b
 footerColor = #8e2e2e
 rojo = #8e2f2e
@@ -262,11 +262,16 @@ footer
 		width 90vw
 		section
 			&.grid-container
+				@media mobile
+					min-height 40%
+					margin-bottom 3vh
 				margin-top 80px
 				min-height 100vh
 				position relative
 				margin-bottom 10vh
 				.opciones
+					@media mobile
+						display none
 					width 100%
 					display flex
 					justify-content center
@@ -300,6 +305,9 @@ footer
 								display flex
 								align-items center
 								justify-content center
+								h1
+									font-size 2vw
+									
 							.imagen
 								background-repeat no-repeat
 								background-size cover
@@ -393,8 +401,16 @@ footer
 
 				.slider-content
 					width 100%
+					@media mobile
+						max-width 85% !important
 					.slider
-
+						.slick-dots
+							@media mobile
+								display none !important
+							bottom inherit !important
+						.slick-prev, .slick-next
+							&:before
+								color black
 						.slick-list
 							height inherit
 						.slide
@@ -411,8 +427,11 @@ footer
 								p
 									color white
 									font-size 24px
+									text-align center
 
 			&.ambiente
+				@media mobile
+					margin-top 16vh
 				md-grid-list
 					transform scale(0.9) !important
 				min-height 100vh
@@ -1296,12 +1315,28 @@ footer
 					background-repeat no-repeat
 					background-size cover
 		.fundadores
+			display flex
+			flex-direction column
+			@media mobile
+				justify-content center
+				align-items center
+				margin-top 5%
+			h1
+				font-size 32px
+				@media mobile
+					font-size 22px
 			.slider
 				display flex
 				justify-content space-around
-				img
-					max-height 200px
-					max-width 200px
+				@media mobile
+					justify-content center
+					flex-direction column
+				.div
+					width 200px
+					height 200px
+					img
+						max-height 100%
+						max-width 100%
 
 .noticias-container
 	position relative

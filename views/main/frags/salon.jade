@@ -17,21 +17,20 @@
 			//- 			md-divider
 			span(flex="10")
 			.form-container.md-padding(flex)
-				
 				form.md-padding(layout="column")
 					p {{ fecha | date:'yyyy-MM-dd HH:mm:ss Z' }}
 					md-input-container
 						label Nombre
-						input(ng-model="nombre")
+						input(ng-model="nombre"  required)
 					md-input-container
 						label Apellido
-						input(ng-model="nombre")
+						input(ng-model="apellido"  required)
 					md-input-container
 						label Numero de telefono
-						input(ng-model="nombre")
+						input(ng-model="numero"  required)
 					md-input-container
 						label Correo
-						input(ng-model="nombre")
+						input(ng-model="correo"  required)
 					md-button
 						md-icon done
 		.eventos-container
