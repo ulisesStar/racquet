@@ -10,8 +10,8 @@
 			.imagen-container
 				.imagen(style="background-image: url('img/historia.jpeg')")
 
-		.Fundadores
+		.fundadores
 			h1 Nuestros Fundadores
 			.slider
-				.imagenes(ng-repeat="fundador in ctrl.fundadores")
+				.imagenes(ng-repeat="fundador in ctrl.fundadores" )
 					img(src="{{fundador.imagen}}")

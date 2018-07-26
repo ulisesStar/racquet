@@ -262,10 +262,18 @@ footer
 		width 90vw
 		section
 			&.grid-container
-				margin-top 10%
+				margin-top 80px
 				min-height 100vh
 				position relative
-				margin-bottom 20vh
+				margin-bottom 10vh
+				.opciones
+					width 100%
+					display flex
+					justify-content center
+					align-items center
+					md-checkbox.md-checked
+						.md-ink-ripple, .md-icon
+							color verde
 				md-grid-list
 					transform scale(.9) !important
 					md-grid-tile
@@ -286,6 +294,12 @@ footer
 								z-index 2
 								transform skew(-50deg, 0)
 								left -50%
+							.center
+								width 100%
+								height 100%
+								display flex
+								align-items center
+								justify-content center
 							.imagen
 								background-repeat no-repeat
 								background-size cover
@@ -1178,6 +1192,9 @@ footer
 		margin 10vh 10vw
 		min-height 80vh
 		width 80vw
+		h1
+			text-align center
+			margin 20px 0
 
 .contacto-container
 	position relative
@@ -1278,6 +1295,14 @@ footer
 					background-position center
 					background-repeat no-repeat
 					background-size cover
+		.fundadores
+			.slider
+				display flex
+				justify-content space-around
+				img
+					max-height 200px
+					max-width 200px
+
 .noticias-container
 	position relative
 	min-height 100vh

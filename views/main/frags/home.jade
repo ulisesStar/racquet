@@ -1,23 +1,27 @@
 .home-container
 	.home-content
 		section.grid-container
-			md-checkbox(ng-model="ctrl.tipos.todo" ng-change="ctrl.grids.default()") Todo
-			md-checkbox(ng-repeat="tipo in ctrl.tipos"  ng-model="tipo.check" ng-change="tipo.cambio()") {{tipo.nombre}}
+			.opciones
+				md-checkbox(ng-model="ctrl.tipos.todo" ng-change="ctrl.grids.default()") Todo
+				md-checkbox(ng-repeat="tipo in ctrl.tipos"  ng-model="tipo.check" ng-change="tipo.cambio()") {{tipo.nombre}}
 			md-grid-list( md-cols='12' md-cols-sm="8" md-cols-md='14' md-row-height='4:3' md-gutter-md='8px' md-gutter='4px')
-				md-grid-tile(ng-repeat='grid in ctrl.grids.items track by $index' md-colspan='{{grid.tamanio.y}}' md-rowspan='{{grid.tamanio.x}}')
+				md-grid-tile(ng-repeat='grid in ctrl.grids.items track by $index' md-colspan='{{grid.tamanio.y}}' md-rowspan='{{grid.tamanio.x}}' ng-click="grid.ir()")
 					.contenido(ng-if="grid.tipo")
 						.capa
-						.imagen(style="background-image:url({{grid.imagen[0].imagen}}); width: 100%; height : 100%")
+						.center(ng-if="!grid.imagen")
+							md-progress-circular(md-mode="indeterminate"  md-diameter="70" ng-disabled="grid.imagen")
+						.imagen(ng-if="grid.imagen" style="background-image:url({{grid.imagen[0].imagen}}); width: 100%; height : 100%")
 						md-grid-tile-footer
 							p {{grid.nombre}}
 						.ir
-							md-button(ng-click="grid.ir()")
+							md-button
 								span Ver
 								md-icon arrow_right_alt
 						
 					.contenido(ng-if="!grid.tipo" style="background-color : {{grid.color}}" ng-click="grid.ir()")
 						.capa
-						h1(style="color : white; text-align: center") {{grid.nombre}}
+						.center
+							h1(style="color : white; text-align: center") {{grid.nombre}}
 						
 					
 			.div#club

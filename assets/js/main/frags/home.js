@@ -12,8 +12,6 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 		}
 		cambio(){
 
-
-
 			self.tipos.todo = false
 			self.tipos.forEach(n => n.check = n.key !== this.key ? false : true )
 
@@ -49,11 +47,11 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 
 		async ruleThemAll(){
 			var tipos = [
-				{  nombre : 'eventos', servicio : Evento, clase : (x) =>  new evento_(x)},
-				{  nombre : 'servicios', servicio : Servicio, clase : (x) =>  new servicio_(x)},
-				{  nombre : 'instalaciones', servicio : Instalacion, clase : (x) =>  new instalacion_(x)},
-				{  nombre : 'noticias', servicio : Noticia, clase : (x) =>  new noticia_(x)},
-				{  nombre : 'salones', servicio : Salon, clase : (x) =>  new salon_(x)}
+				{  nombre : 'eventos', servicio : Evento, clase : (x) =>  new modulo_(x, 'evento', Evento)},
+				{  nombre : 'servicios', servicio : Servicio, clase : (x) =>  new modulo_(x, 'servicio', Servicio)},
+				{  nombre : 'instalaciones', servicio : Instalacion, clase : (x) =>  new modulo_(x, 'instalacion', Instalacion)},
+				{  nombre : 'noticias', servicio : Noticia, clase : (x) =>  new modulo_(x, 'noticia', Noticia)},
+				{  nombre : 'salones', servicio : Salon, clase : (x) =>  new modulo_(x, 'salon', Salon)}
 			]
 
 			Promise.all(
@@ -152,7 +150,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 					this.ir = () => $state.go('instalaciones')
 					break;
 				case 'evento':
-					this.color = '#8e2f2e '
+					this.color = 'blue '
 					this.nombre = 'Eventos'
 					this.ir = () => $state.go('eventos')
 					break;
@@ -162,118 +160,25 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 		}
 	}
 
-	class noticia_{
-		constructor(arg){
-			this.tipo = 'noticia'
+	class modulo_ {
+		constructor(arg, nombre, servicio) {
+			this.tipo = nombre
 			this.id = arg.id,
 			this.nombre = arg.nombre,
+			this.servicio = servicio
 			this.obtener()
 			this.tamanio = self.grids.tamano()
 		}
-
 		obtener(){
-
-
-			Noticia.imagenes(this.id)
+			this.servicio.imagenes(this.id)
 			.then(res => this.imagen = res.data)
 			.then(() => $scope.$digest())
 		}
 		ir(){
-			$state.go('noticia', {id : this.id})
+			$state.go(this.tipo, {id : this.id})
 		}
 
 	}
-
-	class instalacion_{
-		constructor(arg){
-			this.tipo = 'instalacion'
-			this.id = arg.id,
-			this.nombre = arg.nombre,
-			this.obtener()
-			this.tamanio = self.grids.tamano()
-		}
-
-		 obtener(){
-
-			 Instalacion.imagenes(this.id)
-			.then(res => this.imagen = res.data)
-			.then(() => $scope.$digest())
-
-		}
-		ir(){
-			$state.go('instalacion', {id : this.id})
-		}
-
-	}
-
-	class servicio_{
-		constructor(arg){
-			this.tipo = 'servicio'
-			this.id = arg.id,
-			this.nombre = arg.nombre,
-			this.obtener()
-			this.tamanio = self.grids.tamano()
-		}
-
-		obtener(){
-
-			Servicio.imagenes(this.id)
-			.then(res => this.imagen = res.data)
-			.then(() => $scope.$digest())
-
-		}
-		ir(){
-			$state.go('servicio', {id : this.id})
-		}
-
-	}
-
-	class salon_{
-		constructor(arg){
-			this.tipo = 'salon'
-			this.id = arg.id,
-			this.nombre = arg.nombre,
-			this.obtener()
-			this.tamanio = self.grids.tamano()
-		}
-
-		obtener(){
-
-			Salon.imagenes(this.id)
-			.then(res => this.imagen = res.data)
-			.then(() => $scope.$digest())
-
-		}
-		ir(){
-			$state.go('salon', {id : this.id})
-		}
-
-	}
-
-	class evento_{
-		constructor(arg){
-			this.tipo = 'evento'
-			this.id = arg.id,
-			this.nombre = arg.nombre,
-			this.obtener()
-			this.tamanio = self.grids.tamano()
-		}
-
-
-		 obtener(){
-
-		 	Evento.imagenes(this.id)
-			.then(res => this.imagen =  res.data)
-			.then(() => $scope.$digest())
-
-		}
-		ir(){
-			$state.go('evento', {id : this.id})
-		}
-
-	}
-
-
 
 	class instalaciones_{
 		constructor(){

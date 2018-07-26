@@ -13,6 +13,7 @@ app.service('Evento', function() {
     this.imagenes = idEvento => axios('/data/evento/imagenes/' + idEvento)
     this.obtenerParagrid = limite => axios('/data/eventoXimagenes/obtenerParagrid/' + limite)
     this.obtenerDeSalon = idSalon => axios('/data/evento/obtenerDeSalon/'+ idSalon)
+	this.portada = id => axios('/data/evento/portada/'+ id)
 
 });
 
@@ -43,7 +44,7 @@ app.service('Instalacion', function() {
     this.imagenesOneTodas = idInstalacion => axios('/data/imagenesOneTodas/' + idInstalacion)
     this.servicios = idInstalacion => axios('/data/serviciosXinstalaciones/' + idInstalacion)
 
-
+    this.portada = id => axios('/data/instalacion/portada/'+ id)
 
 });
 
@@ -65,6 +66,7 @@ app.service('Servicio', function() {
     this.obtenerParagrid = limite => axios('/data/servicioXimagenes/obtenerParagrid/' + limite)
     this.imagenesOneTodas = idServicio => axios('/data/servicio/imagenesOneTodas/' + idServicio)
 
+    	this.portada = id => axios('/data/servicio/portada/'+ id)
 
 });
 
@@ -80,7 +82,7 @@ app.service('Salon', function() {
     this.obtenerParagrid = limite => axios('/data/salonXimagenes/obtenerParagrid/' + limite)
     this.imagenesOneTodas = idSalon => axios('/data/salon/imagenesOneTodas/' + idSalon)
 
-
+    	this.portada = id => axios('/data/salon/portada/'+ id)
 
 });
 
@@ -107,6 +109,8 @@ app.service('Noticia', function() {
     this.obtenerParagrid = limite => axios('/data/noticiaXimagenes/obtenerParagrid/' + limite)
     this.imagenesOneTodas = idNoticia => axios('/data/noticia/imagenesOneTodas/' + idNoticia)
     this.obtenerDatos = idNoticia => axios('/data/noticia/obtenerDatos/' + idNoticia)
+
+    	this.portada = id => axios('/data/evento/noticia/'+ id)
 
 
 });

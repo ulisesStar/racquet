@@ -5,12 +5,36 @@
 		.descripcion(ng-bind-html="ctrl.salon.item.descripcion"  style="color : black; margin-bottom : 30px")
 .salon-container
 	.salon-content
-		.calendario
-			md-list
-				md-list-item(ng-repeat="fecha in ctrl.calendarios.items")
-					strong {{fecha.fecha | date: 'medium'}}
-					md-divider
+		h1 Aparta tu fecha y obten un precio especial
+		.calendario-content(layout="row")
+			.calendario(flex="40")
+				#calendar
+			//- .descripcion(flex)
+			//- 	p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec felis lorem, ornare id egestas et, semper vitae quam. Donec ac dolor ac velit pharetra molestie ut nec sapien. Fusce quis lectus ut urna tempor varius id in diam. Suspendisse congue condimentum pharetra. Maecenas dictum urna vel augue iaculis, eget dictum justo facilisis. In non porttitor felis. Vestibulum euismod risus sit amet suscipit posuere. Quisque a leo sed libero luctus aliquam.
+			//- 	md-list
+			//- 		md-list-item(ng-repeat="fecha in ctrl.calendarios.items")
+			//- 			strong {{fecha.fecha | date: 'medium'}}
+			//- 			md-divider
+			span(flex="10")
+			.form-container.md-padding(flex)
+				
+				form.md-padding(layout="column")
+					p {{ fecha | date:'yyyy-MM-dd HH:mm:ss Z' }}
+					md-input-container
+						label Nombre
+						input(ng-model="nombre")
+					md-input-container
+						label Apellido
+						input(ng-model="nombre")
+					md-input-container
+						label Numero de telefono
+						input(ng-model="nombre")
+					md-input-container
+						label Correo
+						input(ng-model="nombre")
+					md-button
+						md-icon done
 		.eventos-container
 			md-grid-list(md-cols="3" md-row-height="150px" md-gutter-gt-md='10px' md-gutter-md='4px' md-gutter='4px')
-				md-grid-tile(md-colspan="1" md-rowspan="1" ng-repeat="evento in ctrl.eventos.items")
+				md-grid-tile(md-colspan="1" md-rowspan="1"  md-rowspan-xs="2" md-rowspan-sm="2" ng-repeat="evento in ctrl.eventos.items")
 					.imagen(style="background-image:url({{evento.imagen[0].imagen}}); width: 100%; height : 100%; background-position: center; background-repeat: no-repeat; background-size: cover;")

@@ -13,14 +13,4 @@ app.controller('historiaCtrl', function($scope, $rootScope, $http, $mdDialog, md
 		{imagen:"img/5.png"}
 	]
 
-	$( '.slider' ).slick({
-		slidesToShow: 3,
-		slidesToScroll: 1,
-		arrows: true,
-		infinite: true,
-		speed: 300,
-	})
-
-	
-
 });

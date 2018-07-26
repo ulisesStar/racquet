@@ -297,10 +297,20 @@ footer .footer .contactoFooter .iconos img {
   width: 90vw;
 }
 .home-container .home-content section.grid-container {
-  margin-top: 10%;
+  margin-top: 80px;
   min-height: 100vh;
   position: relative;
-  margin-bottom: 20vh;
+  margin-bottom: 10vh;
+}
+.home-container .home-content section.grid-container .opciones {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-container .home-content section.grid-container .opciones md-checkbox.md-checked .md-ink-ripple,
+.home-container .home-content section.grid-container .opciones md-checkbox.md-checked .md-icon {
+  color: #3a512b;
 }
 .home-container .home-content section.grid-container md-grid-list {
   transform: scale(0.9) !important;
@@ -329,6 +339,13 @@ footer .footer .contactoFooter .iconos img {
   z-index: 2;
   transform: skew(-50deg, 0);
   left: -50%;
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido .center {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido .imagen {
   background-repeat: no-repeat;
@@ -1627,6 +1644,10 @@ md-grid-list
   min-height: 80vh;
   width: 80vw;
 }
+.salon-container .salon-content h1 {
+  text-align: center;
+  margin: 20px 0;
+}
 .contacto-container {
   position: relative;
   min-height: 100vh;
@@ -1760,6 +1781,14 @@ md-grid-list
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.historia-container .historia-content .fundadores .slider {
+  display: flex;
+  justify-content: space-around;
+}
+.historia-container .historia-content .fundadores .slider img {
+  max-height: 200px;
+  max-width: 200px;
 }
 .noticias-container {
   position: relative;
