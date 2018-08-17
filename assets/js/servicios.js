@@ -110,7 +110,7 @@ app.service('Noticia', function() {
     this.imagenesOneTodas = idNoticia => axios('/data/noticia/imagenesOneTodas/' + idNoticia)
     this.obtenerDatos = idNoticia => axios('/data/noticia/obtenerDatos/' + idNoticia)
 
-    	this.portada = id => axios('/data/evento/noticia/'+ id)
+    this.portada = id => axios('/data/evento/noticia/'+ id)
 
 
 });

@@ -1433,6 +1433,7 @@ md-grid-list
 }
 .salones-container .salones-content .texto-container {
   margin-top: 5vw;
+  min-width: 400px;
 }
 .salones-container .salones-content .texto-container .texto {
   text-align: left;

@@ -4,7 +4,7 @@
 			.opciones
 				md-checkbox(ng-model="ctrl.tipos.todo" ng-change="ctrl.grids.default()") Todo
 				md-checkbox(ng-repeat="tipo in ctrl.tipos"  ng-model="tipo.check" ng-change="tipo.cambio()") {{tipo.nombre}}
-			md-grid-list( md-cols='12' md-cols-md='14' md-row-height='4:3' md-gutter-md='8px' md-gutter='4px')
+			md-grid-list(md-cols-xs='6' md-cols='12' md-cols-md='14' md-row-height='4:3' md-gutter-md='8px' md-gutter='4px')
 				md-grid-tile(ng-repeat='grid in ctrl.grids.items track by $index' md-colspan='{{grid.tamanio.y}}' md-rowspan='{{grid.tamanio.x}}' ng-click="grid.ir()")
 					.contenido(ng-if="grid.tipo")
 						.capa
@@ -29,7 +29,7 @@
 				p BIENVENIDO AL
 				h1 CLUB
 				.texto-descripcion
-					p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id deleniti, harum modi incidunt namnihil atque aspernatur nulla provident eum ut accusamus quam ullam temporibus! Commodi iste quas, quae voluptate.
+					p Somos Las Palmas Raquet Club, el primer club de tenis de Veracruz.
 			.slider-content(flex="60")
 				.slider(layout="row" flex)
 					.slide(ng-repeat='imagen in ctrl.instalaciones.items')
@@ -44,16 +44,16 @@
 				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-color: #8e2f2e" )
 					.datos(layout="column")
 						h1 Seguridad
-						p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui reiciendis nostrum nobis neque
+						p  Para nosotros es importante que te sientas protegido todo el tiempo, por lo que nuestros guardias de seguridad te cuidaran a ti y a tu familia.
 				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-image:url('img/2.png')")
 				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-image:url('img/3.png')")
 				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-color: #3a512c")
 					.datos(layout="column")
 						h1 Exclusivo
-						p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui reiciendis nostrum nobis neque
+						p  Nuestro proceso es muy selectivo, por lo que sabes que siempre te encontratas gente de tu agrado.
 				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-image:url('img/4.png')")
 				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-image:url('img/5.png')")
 				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-color: #3a512c")
 					.datos(layout="column")
 						h1 Tranquilidad
-						p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui reiciendis nostrum nobis neque
+						p  El ambiente que pasas aqui es como si no existiera un mundo afuera.

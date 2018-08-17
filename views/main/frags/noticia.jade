@@ -1,6 +1,16 @@
 .noticia-container
 	.noticia-content
-		.titulo
+		.titulo(layout="row" layout-align="space-between center" style="width : 100%")
 			h1{{ctrl.noticia.nombre}}
+			md-chips
+				md-chip(ng-repeat="tag in ctrl.noticia.tags") {{tag.nombre}}
 		.resena(ng-bind-html="ctrl.noticia.contenido.resena")
-		.descripcion(ng-bind-html="ctrl.noticia.contenido.descripcion")
+		.descripcion(ng-bind-html="ctrl.noticia.contenido.descripcion" style="margin: 50px 0")
+		md-progress-linear(md-mode="indeterminate" ng-if="!ctrl.noticia.imagenes" ng-disabled="ctrl.noticia.imagenes")
+		.galeria(style="width:100%" ng-if="ctrl.noticia.imagenes.length > 0")
+			h4 Galeria de imagenes
+			md-grid-list(md-cols="3" md-row-height="150px" md-gutter-gt-md='10px' md-gutter-md='4px' md-gutter='4px')
+				md-grid-tile(md-colspan="1" md-rowspan="1"  md-rowspan-xs="2" md-rowspan-sm="2" ng-repeat="imagen in ctrl.noticia.imagenes")
+					img(src="{{imagen.imagen}}" style="width: auto; height : 100%; background-position: center; background-repeat: no-repeat; background-size: cover;" ng-click="ctrl.abrir(imagen)")
+					
+				
