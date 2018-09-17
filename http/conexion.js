@@ -1,8 +1,8 @@
 var mysql = require('mysql');
 var Sequelize = require('sequelize');
 
-var sequelize = new Sequelize('racquet', 'root', 'qwertyuiop', {
-    host: '35.231.52.237',
+var sequelize = new Sequelize('racquet', 'root', 'simple', {
+    host: '35.237.27.229',
     dialect: 'mysql',
     define: {
        charset: 'utf8',
