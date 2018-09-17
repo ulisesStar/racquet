@@ -36,6 +36,37 @@ animation(animation, duration = 1s, delay = 0s)
 	box-sizing border-box
 	font-family Cabin
 
+footer, header
+	z-index:  2
+
+.contenedor
+	.centro
+		z-index 2
+	.lineas
+		position: fixed
+		z-index: 1
+		.linea
+			&:first-child
+				border-left 1px solid rgba(216, 204, 110 .5) !important
+			border-right  1px solid rgba(216, 204, 110 .5 !important
+
+
+.lineas
+	@media mobile
+		display none
+	position absolute
+	top 0px
+	margin 0px
+	width 100%
+	height 100%
+	display flex
+	flex-direction row
+	.linea
+		&:first-child
+			border-left 1px solid rgba(255, 255, 255, .4)
+		border-right 1px solid rgba(255, 255, 255, .4)
+		width 100%
+		transform skew(-40deg, 0)
 
 md-grid-list
 	md-grid-tile
@@ -76,23 +107,6 @@ md-sidenav
 			flex-direction row-reverse
 			margin 0
 			margin-right 10vw
-
-	.lineas
-		@media mobile
-			display none
-		position absolute
-		top 0px
-		margin 0px
-		width 100%
-		height 100%
-		display flex
-		flex-direction row
-		.linea
-			&:first-child
-				border-left 1px solid rgba(255, 255, 255, .4)
-			border-right 1px solid rgba(255, 255, 255, .4)
-			width 100%
-			transform skew(-40deg, 0)
 	md-list
 		md-list-item
 		.md-list-item-inner
@@ -291,14 +305,17 @@ footer
 							&>*
 								transition(500ms , 0)
 							.capa
-								width 0%
+								width 100%
 								height 100%
-								background-color rgba(255, 255, 255, .4)
-								opacity .9
+								// background-color rgba(0, 0, 0, .4)
 								position absolute
 								z-index 2
-								transform skew(-50deg, 0)
-								left -50%
+								background:  linear-gradient(to top,
+									rgba(0,0,0,0.65) 0%,
+									rgba(0,0,0,0.4) 20%,
+									rgba(0,0,0,0.2) 30%,
+									rgba(0,0,0,0) 100%);
+
 							.center
 								width 100%
 								height 100%
@@ -314,13 +331,15 @@ footer
 								background-position center
 
 							md-grid-tile-footer
-								bottom -50px
+								bottom 0px
 								height 80px
 								background-color inherit
 								display flex
 								justify-content flex-start
 								align-items flex-start
-								opacity 0
+								opacity 1
+								padding 0 10px
+								z-index 3
 								p
 									font-weight 800
 							.ir
@@ -328,6 +347,7 @@ footer
 								bottom 1px
 								width 100%
 								height 30px
+								z-index 3
 								.md-button
 									min-height 0px
 									height 25px
@@ -349,15 +369,15 @@ footer
 										color white
 
 						&:hover
-							.capa
-								animation destello 500ms infinite;
+							// .capa
+								// animation destello 500ms infinite;
 							.imagen
 								transform scale(1.2)
-							md-grid-tile-footer
-								bottom 0px
-								opacity 1
-								padding 0 10px
-								background-color rgba(0, 0, 0, .2)
+							// md-grid-tile-footer
+							// 	bottom 0px
+							// 	opacity 1
+							// 	padding 0 10px
+							// 	background-color rgba(0, 0, 0, .2)
 
 
 
@@ -367,107 +387,160 @@ footer
 										margin-left 10px
 
 			&.club
-				min-height 100vh
-				@media mobile
-					flex-direction column
-
-				display flex
-				flex-direction row
-				.texto
+				margin 100px 0
+				.club-content
 					@media mobile
-						max-width 100%
-						max-height 40%
-					h1
-						@media mobile
-							font-size 40px
-						color gray
-						font-size 80px
-						margin 0
-						font-weight 100
-					p
-						@media mobile
-							font-size 10px
-						font-size 20px
-						margin 0
-						margin-left 5vw
-					.texto-descripcion
-						@media mobile
-							width 100%
-						width 70%
-						p
-							font-size 16px
-							text-align justify
-							padding 10px
+						flex-direction column
 
-				.slider-content
-					width 100%
-					@media mobile
-						max-width 85% !important
-					.slider
-						.slick-dots
+					display flex
+					flex-direction row
+					.texto
+						justify-content: center;
+						align-items: flex-start;
+						display: flex;
+						flex-direction: column;
+						@media mobile
+							max-width 100%
+							max-height 40%
+						h1
 							@media mobile
-								display none !important
-							bottom inherit !important
-						.slick-prev, .slick-next
-							&:before
-								color black
-						.slick-list
-							height inherit
-						.slide
-							height inherit
-							display flex
-							justify-content center
-							align-items center
-							.imagen
+								font-size 40px
+							color black
+							font-size 80px
+							margin 0
+							font-weight 100
+						p
+							@media mobile
+								font-size 10px
+							font-size 20px
+							margin 0
+							margin-left 5vw
+							color gray
+						.texto-descripcion
+							@media mobile
 								width 100%
-								height 400px
-								background-size cover
-								background-repeat no-repeat
-								background-position center
-								p
+							width 70%
+							p
+								font-size 16px
+								text-align justify
+								padding 10px
+
+					.slider-container
+
+						width 100%
+						@media mobile
+							max-width 85% !important
+						.flechas
+							margin 10px 0
+							.md-button
+								margin 0px
+								background-color: verde
+								min-width: 40px
+								&:first-child
+									border-radius: 50px 0 0 50px
+								&:last-child
+									border-radius: 0 50px 50px 0
+								md-icon
 									color white
-									font-size 24px
-									text-align center
 
+						.slider
+							.slick-dots
+								@media mobile
+									display none !important
+								bottom inherit !important
+							.slick-prev, .slick-next
+								&:before
+									color black
+							.slick-list
+								height inherit
+							.slide
+								height inherit
+								display flex
+								justify-content center
+								align-items center
+								position:  relative;
+								.capa
+									display: flex;
+									justify-content: flex-start;
+									align-items: flex-end;
+									color white
+									width 100%
+									height 100%
+									position absolute
+									z-index 2
+									background:  linear-gradient(to top,
+										rgba(0,0,0,0.65) 0%,
+										rgba(0,0,0,0.4) 20%,
+										rgba(0,0,0,0.2) 30%,
+										rgba(0,0,0,0) 100%);
+									p
+										padding 0 30px
+										color white
+										font-size 30px
+								.imagen
+									width 100%
+									height 400px
+									background-size cover
+									background-repeat no-repeat
+									background-position center
+									p
+										color white
+										font-size 24px
+										text-align center
+							ul.slick-dots
+								margin 15px 0
+								li
+									button
+										border 3px solid verde
+										width: 10px
+										height: 10px
+										border-radius: 10px
+										&:before
+											content ''
+									&.slick-active
+										button
+											background-color: verde
 			&.ambiente
-				@media mobile
-					margin-top 16vh
-				md-grid-list
-					transform scale(0.9) !important
-				min-height 100vh
-				.texto
-					h1
-						@media mobile
-							font-size 40px
-						color gray
-						font-size 80px
-						margin 0
-						font-weight 100
+				.ambiente-content
+					@media mobile
+						margin-top 16vh
+					md-grid-list
+						transform scale(0.9) !important
+					min-height 100vh
+					.texto
+						h1
+							@media mobile
+								font-size 40px
+							color black
+							font-size 80px
+							margin 0
+							font-weight 100
 
-					p
-						@media mobile
-							font-size 10px
-						font-size 20px
-						margin 0
-						margin-left 5vw
-				md-grid-list
-				transform scale(.9) !important
-				.datos
-					h1
-						@media mobile
-							font-size 23px
-						color white
-						text-align center
-						margin 0
-						font-size 30px
-					p
-						@media mobile
-							font-size 10px
-						color white
-						margin 0
-						padding 10px
-						text-align justify
-						font-size 14px
+						p
+							@media mobile
+								font-size 10px
+							font-size 20px
+							margin 0
+							margin-left 5vw
+							color gray
+
+					transform scale(.9) !important
+					.datos
+						h1
+							@media mobile
+								font-size 23px
+							color white
+							text-align center
+							margin 0
+							font-size 30px
+						p
+							@media mobile
+								font-size 10px
+							color white
+							margin 0
+							padding 10px
+							text-align justify
+							font-size 14px
 
 
 .instalaciones-container

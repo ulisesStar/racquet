@@ -1,59 +1,74 @@
 .home-container
 	.home-content
 		section.grid-container
-			.opciones
-				md-checkbox(ng-model="ctrl.tipos.todo" ng-change="ctrl.grids.default()") Todo
-				md-checkbox(ng-repeat="tipo in ctrl.tipos"  ng-model="tipo.check" ng-change="tipo.cambio()") {{tipo.nombre}}
-			md-grid-list(md-cols-xs='6' md-cols='12' md-cols-md='14' md-row-height='4:3' md-gutter-md='8px' md-gutter='4px')
-				md-grid-tile(ng-repeat='grid in ctrl.grids.items track by $index' md-colspan='{{grid.tamanio.y}}' md-rowspan='{{grid.tamanio.x}}' ng-click="grid.ir()")
+			//- .opciones
+			//- 	md-checkbox(ng-model="ctrl.tipos.todo" ng-change="ctrl.grids.default()") Todo
+			//- 	md-checkbox(ng-repeat="tipo in ctrl.tipos"  ng-model="tipo.check" ng-change="tipo.cambio()") {{tipo.nombre}}
+			md-grid-list(md-cols-xs='6'  md-cols-sm='6' md-cols-md='8' md-cols='12'  md-row-height='1:1' md-gutter-md='8px' md-gutter='4px')
+				md-grid-tile(id="{{grid.id}}"  ng-repeat='grid in ctrl.grids.items track by $index' md-colspan='{{grid.tamanio.y}}' md-rowspan='{{grid.tamanio.x}}' ng-click="grid.ir()")
 					.contenido(ng-if="grid.tipo")
 						.capa
 						.center(ng-if="!grid.imagen")
 							md-progress-circular(md-mode="indeterminate"  md-diameter="70" ng-disabled="grid.imagen")
 						.imagen(ng-if="grid.imagen" style="background-image:url({{grid.imagen[0].imagen}}); width: 100%; height : 100%")
 						md-grid-tile-footer
-							p {{grid.nombre}}
+							h2 {{grid.nombre}}
 						.ir
 							md-button
 								span Ver
 								md-icon arrow_right_alt
 						
-					.contenido(ng-if="!grid.tipo" style="background-color : {{grid.color}}" ng-click="grid.ir()")
-						.capa
+					.contenido(ng-if="!grid.tipo && !grid.texto" style="background-color : {{grid.color}}" ng-click="grid.ir()")
 						.center
 							h1(style="color : white; text-align: center;") {{grid.nombre}}
-						
+					.contenido(ng-if="grid.texto")
+						.center
+							h2 {{grid.descripcion}}
 					
 		section.club#club(layout="row" layout-align="center center")
-			.texto(flex="40")
-				p BIENVENIDO AL
-				h1 CLUB
-				.texto-descripcion
-					p Somos Las Palmas Raquet Club, el primer club de tenis de Veracruz.
-			.slider-content(flex="60")
-				.slider(layout="row" flex)
-					.slide(ng-repeat='imagen in ctrl.instalaciones.items')
-						.imagen(style="background-image:url({{imagen.imagen[0].imagen}})")
-							p {{imagen.nombre}}
-		section.ambiente
-			.texto
-				p AMBIENTE
-				H1 FAMILIAR
-			md-grid-list(md-cols='4' md-cols-md='4' md-cols-sm='2' md-cols-xs='1' md-row-height="170px")
-				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-image:url('img/1.png')")
-				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-color: #8e2f2e" )
-					.datos(layout="column")
-						h1 Seguridad
-						p  Para nosotros es importante que te sientas protegido todo el tiempo, por lo que nuestros guardias de seguridad te cuidaran a ti y a tu familia.
-				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-image:url('img/2.png')")
-				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-image:url('img/3.png')")
-				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-color: #3a512c")
-					.datos(layout="column")
-						h1 Exclusivo
-						p  Nuestro proceso es muy selectivo, por lo que sabes que siempre te encontratas gente de tu agrado.
-				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-image:url('img/4.png')")
-				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-image:url('img/5.png')")
-				md-grid-tile(md-colspan="1" md-rowspan="1" style="background-color: #3a512c")
-					.datos(layout="column")
-						h1 Tranquilidad
-						p  El ambiente que pasas aqui es como si no existiera un mundo afuera.
+			.club-content
+				.texto(flex="40")
+					p BIENVENIDO AL
+					h1 CLUB
+					.texto-descripcion
+						p Somos Las Palmas Raquet Club, el primer club de tenis de Veracruz.
+					.flechas
+						
+						
+				.slider-container(flex="60")
+					.flechas
+						md-button.prev
+							md-icon keyboard_arrow_left
+						md-button.next
+							md-icon keyboard_arrow_right
+					.slider-content
+						.slider(layout="row" flex)
+							.slide(ng-repeat='imagen in ctrl.instalaciones.items')
+								.capa
+									p {{imagen.nombre}}
+								.imagen(style="background-image:url({{imagen.imagen[0].imagen}})")
+									
+					
+		section.ambiente#ambiente
+			.ambiente-content
+				.texto
+					p AMBIENTE
+					H1 FAMILIAR
+				md-grid-list(md-cols='4' md-cols-md='4' md-cols-sm='2' md-cols-xs='1' md-row-height="250px")
+					md-grid-tile(md-colspan="1" md-rowspan="1" style="background-image:url('img/1.png')")
+					md-grid-tile(md-colspan="1" md-rowspan="1" style="background-color: #8e2f2e" )
+						.datos(layout="column")
+							h1 Seguridad
+							p  Para nosotros es importante que te sientas protegido todo el tiempo, por lo que nuestros guardias de seguridad te cuidaran a ti y a tu familia.
+					md-grid-tile(md-colspan="1" md-rowspan="1" style="background-image:url('img/2.png')")
+					md-grid-tile(md-colspan="1" md-rowspan="1" style="background-image:url('img/3.png')")
+					md-grid-tile(md-colspan="1" md-rowspan="1" style="background-color: #3a512c")
+						.datos(layout="column")
+							h1 Exclusivo
+							p  Nuestro proceso es muy selectivo, por lo que sabes que siempre te encontratas gente de tu agrado.
+					md-grid-tile(md-colspan="1" md-rowspan="1" style="background-image:url('img/4.png')")
+					md-grid-tile(md-colspan="1" md-rowspan="1" style="background-image:url('img/5.png')")
+					md-grid-tile(md-colspan="1" md-rowspan="1" style="background-color: #3a512c")
+						.datos(layout="column")
+							h1 Tranquilidad
+							p  El ambiente que pasas aqui es como si no existiera un mundo afuera.

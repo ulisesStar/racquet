@@ -8,12 +8,12 @@ html(ng-app="myapp")
 		meta(name="description" content="Club de tenis, club social, club, tenis, gimnasio")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
 		
-		//- script.
-		//- 	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-		//- 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-		//- 	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-		//- 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		//- 	})(window,document,'script','dataLayer','GTM-NS4L69Q');
+		script.
+			(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-N6GK9WD');
 
 		//- Angular
 		script(type="text/javascript", src="bower_components/angular/angular.min.js")
@@ -109,6 +109,8 @@ html(ng-app="myapp")
 		script(type="text/javascript", src="js/auth.js")
 		script(type="text/javascript", src="js/tween.js")
 		script(type="text/javascript", src="js/konva.js")
+		
+		script(type="text/javascript", src="js/factories.js")
 
 		//- Css externos
 		link(type="text/css" rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.0/angular-material.min.css")

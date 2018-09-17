@@ -1,8 +1,9 @@
 var app = angular.module('myapp');
 
-app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDialog, $timeout, $mdSidenav, $state, $stateParams,Instalacion, Evento, Servicio, Salon, Noticia) {
+app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDialog, $timeout, $mdSidenav, $state, $stateParams,Instalacion, Evento, Servicio, Salon, Noticia, Resolucion) {
 
 	self = this;
+	var scrollMagicController = new ScrollMagic.Controller();
 
 	class tipo_{
 		constructor(arg){
@@ -22,6 +23,9 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 
 		}
 	}
+
+
+
 
 	self.tipos = _.map(['noticias', 'eventos', 'instalaciones', 'servicios', 'salones'], (n) =>  new tipo_(n))
 
@@ -60,8 +64,6 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 			.then(response => response.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)).reverse())
 			.then(response => {
 
-				// this.items = response
-
 				let tipos = _.uniqBy(response, 'tipo').map(n => n.tipo).map(n => new cuadro_(n))
 
 				var cuenta1 = 0
@@ -69,6 +71,10 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 				var algo = []
 
 				_.times(  response.length + (tipos.length / 2), (n) => {
+
+					if(n === 2){
+						algo.push(new texto_())
+					}
 
 					if((n % 2 ) === 0){
 
@@ -85,8 +91,42 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 
 				this.items = algo
 
-				console.log(tipos)
+			})
+			.then(() => {
 
+
+				TweenMax.from($('.grid-container'),  1.5, { opacity : 0, y: '100%' } )
+
+				setTimeout(() => {
+
+					console.log($('.grid-container md-grid-tile'))
+
+					$('.grid-container md-grid-tile').each((key, v) => {
+
+						new ScrollMagic.Scene({
+							triggerElement: v,
+							triggerHook: .7,
+							duration: '250px'
+							})
+						.setTween(TweenMax.from($(v).find( 'figure' ),  1.5, { opacity : 0, y: '100%' } ))
+						.addTo(scrollMagicController)
+						// .addIndicators()
+
+					})
+
+					let secciones = ['.club', '.ambiente'].forEach(n => {
+
+						new ScrollMagic.Scene({
+							triggerElement: n,
+							triggerHook: .7,
+							duration: '250px'
+							})
+						.setTween(TweenMax.from(n + '-content',  1.5, { opacity : 0, y: '100%' } ))
+						.addTo(scrollMagicController)
+
+					})
+
+				}, 1000)
 			})
 			.then(() => $scope.$digest())
 
@@ -112,9 +152,12 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 
 		tamano(){
 
-			let random = _.random(3, 5)
+			console.log(Resolucion.obtener())
+
+			let resolucion = new Object({  xs : [ 6 , 6] , sm : [ 6 , 6], md : [ 6 , 8], lg : [ 6 , 6], xl : [ 6 , 6]   })[Resolucion.obtener()]
+			let random = _.random(resolucion[0], resolucion[1])
 			return {
-				x : random - 1 ,
+				x : random - _.random(1, 3),
 				y : random
 			}
 		}
@@ -135,12 +178,12 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 					this.ir = () => $state.go('salones')
 					break;
 				case 'noticia':
-					this.color = '#3a512b'
+					this.color =   '#8e2f2e '
 					this.nombre = 'Noticias'
 					this.ir = () => $state.go('noticias')
 					break;
 				case 'servicio':
-					this.color = '#8e2f2e '
+					this.color = '#3a512b'
 					this.nombre = 'Servicios'
 					this.ir = () => $state.go('servicios')
 					break;
@@ -177,7 +220,17 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 		ir(){
 			$state.go(this.tipo, {id : this.id})
 		}
+	}
 
+	class texto_{
+		constructor(){
+			this.texto = true
+			this.tamanio = {
+				x : 2,
+				y : 4
+			}
+			this.descripcion = 'Bienvenido al Racquet Club'
+		}
 	}
 
 	class instalaciones_{
@@ -234,7 +287,27 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
    		adaptiveHeight: true,
 		autoplay: true,
 		autoplaySpeed: 2000,
+		arrows: true,
+		prevArrow: $('.prev'),
+		nextArrow: $('.next')
    	  })
 	}
+
+	var tl = new TimelineLite();
+
+
+	$('#ambiente md-grid-tile').each((key, v) => {
+
+		tl.from(v, 1.5, { opacity : 0, x: '100%' }, "+=1")
+
+		new ScrollMagic.Scene({
+			triggerElement: '#ambiente',
+			triggerHook: .6,
+			duration: '400px'
+			})
+		.setTween(tl)
+		.addTo(scrollMagicController)
+
+	})
 
 });
