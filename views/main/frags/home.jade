@@ -12,7 +12,8 @@
 							md-progress-circular(md-mode="indeterminate"  md-diameter="70" ng-disabled="grid.imagen")
 						.imagen(ng-if="grid.imagen" style="background-image:url({{grid.imagen[0].imagen}}); width: 100%; height : 100%")
 						md-grid-tile-footer
-							h2 {{grid.nombre}}
+							h2 {{ grid.nombre }}
+							p  {{ grid.categoria }}
 						.ir
 							md-button
 								span Ver
@@ -23,7 +24,7 @@
 							h1(style="color : white; text-align: center;") {{grid.nombre}}
 					.contenido(ng-if="grid.texto")
 						.center
-							h2 {{grid.descripcion}}
+							.descripcion(ng-bind-html="grid.descripcion")
 					
 		section.club#club(layout="row" layout-align="center center")
 			.club-content

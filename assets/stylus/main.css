@@ -14,10 +14,10 @@ header {
   z-index: 1;
 }
 .contenedor .lineas .linea {
-  border-right: 1px solid rgba(216,204,110,0.3) !important;
+  border-right: 1px solid rgba(216,204,110,0.5) !important;
 }
 .contenedor .lineas .linea:first-child {
-  border-left: 1px solid rgba(216,204,110,0.3) !important;
+  border-left: 1px solid rgba(216,204,110,0.5) !important;
 }
 .lineas {
   position: absolute;
@@ -204,6 +204,8 @@ md-sidenav .direcciones p {
   width: 100%;
 }
 footer {
+  z-index: 10;
+  position: relative;
   background-color: #8e2e2e;
 }
 footer .footer {
@@ -375,6 +377,12 @@ footer .footer .contactoFooter .iconos img {
 .home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido .center h1 {
   font-size: 2vw;
 }
+.home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido .center .descripcion {
+  padding: 0 40px;
+}
+.home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido .center .descripcion p {
+  margin-left: 1vw;
+}
 .home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido .imagen {
   background-repeat: no-repeat;
   background-size: cover;
@@ -382,7 +390,7 @@ footer .footer .contactoFooter .iconos img {
 }
 .home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido md-grid-tile-footer {
   bottom: 0px;
-  height: 80px;
+  height: 90px;
   background-color: inherit;
   display: flex;
   justify-content: flex-start;
@@ -391,8 +399,12 @@ footer .footer .contactoFooter .iconos img {
   padding: 0 10px;
   z-index: 3;
 }
+.home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido md-grid-tile-footer h2 {
+  margin: 0px;
+}
 .home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido md-grid-tile-footer p {
   font-weight: 800;
+  margin: 0px;
 }
 .home-container .home-content section.grid-container md-grid-list md-grid-tile .contenido .ir {
   position: absolute;
@@ -441,53 +453,6 @@ footer .footer .contactoFooter .iconos img {
   .home-container .home-content section.club .club-content {
     flex-direction: column;
   }
-}
-.home-container .home-content section.club .club-content .texto {
-  justify-content: center;
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-}
-@media (max-width: 1024px) {
-  .home-container .home-content section.club .club-content .texto {
-    max-width: 100%;
-    max-height: 40%;
-  }
-}
-.home-container .home-content section.club .club-content .texto h1 {
-  color: #000;
-  font-size: 80px;
-  margin: 0;
-  font-weight: 100;
-}
-@media (max-width: 1024px) {
-  .home-container .home-content section.club .club-content .texto h1 {
-    font-size: 40px;
-  }
-}
-.home-container .home-content section.club .club-content .texto p {
-  font-size: 20px;
-  margin: 0;
-  margin-left: 5vw;
-  color: #808080;
-}
-@media (max-width: 1024px) {
-  .home-container .home-content section.club .club-content .texto p {
-    font-size: 10px;
-  }
-}
-.home-container .home-content section.club .club-content .texto .texto-descripcion {
-  width: 70%;
-}
-@media (max-width: 1024px) {
-  .home-container .home-content section.club .club-content .texto .texto-descripcion {
-    width: 100%;
-  }
-}
-.home-container .home-content section.club .club-content .texto .texto-descripcion p {
-  font-size: 16px;
-  text-align: justify;
-  padding: 10px;
 }
 .home-container .home-content section.club .club-content .slider-container {
   width: 100%;
@@ -2089,6 +2054,53 @@ footer .footer .contactoFooter .iconos img {
 .noticia-container .noticia-content .contenedor .imagen-abajo img {
   width: 100%;
   height: 100%;
+}
+.texto {
+  justify-content: center;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 1024px) {
+  .texto {
+    max-width: 100%;
+    max-height: 40%;
+  }
+}
+.texto h1 {
+  color: #000;
+  font-size: 80px;
+  margin: 0;
+  font-weight: 100;
+}
+@media (max-width: 1024px) {
+  .texto h1 {
+    font-size: 40px;
+  }
+}
+.texto p {
+  font-size: 20px;
+  margin: 0;
+  margin-left: 5vw;
+  color: #808080;
+}
+@media (max-width: 1024px) {
+  .texto p {
+    font-size: 10px;
+  }
+}
+.texto .texto-descripcion {
+  width: 70%;
+}
+@media (max-width: 1024px) {
+  .texto .texto-descripcion {
+    width: 100%;
+  }
+}
+.texto .texto-descripcion p {
+  font-size: 16px;
+  text-align: justify;
+  padding: 10px;
 }
 @-moz-keyframes destello {
   0% {

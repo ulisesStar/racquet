@@ -51,11 +51,11 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 
 		async ruleThemAll(){
 			var tipos = [
-				{  nombre : 'eventos', servicio : Evento, clase : (x) =>  new modulo_(x, 'evento', Evento)},
+				{  nombre : 'eventos', servicio : Evento, clase : (x) =>  new modulo_(x, 'evento', Evento, 'evento')},
 				{  nombre : 'servicios', servicio : Servicio, clase : (x) =>  new modulo_(x, 'servicio', Servicio)},
-				{  nombre : 'instalaciones', servicio : Instalacion, clase : (x) =>  new modulo_(x, 'instalacion', Instalacion)},
+				{  nombre : 'instalaciones', servicio : Instalacion, clase : (x) =>  new modulo_(x, 'instalación', Instalacion)},
 				{  nombre : 'noticias', servicio : Noticia, clase : (x) =>  new modulo_(x, 'noticia', Noticia)},
-				{  nombre : 'salones', servicio : Salon, clase : (x) =>  new modulo_(x, 'salon', Salon)}
+				{  nombre : 'salones', servicio : Salon, clase : (x) =>  new modulo_(x, 'salón', Salon)}
 			]
 
 			Promise.all(
@@ -64,30 +64,46 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 			.then(response => response.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt)).reverse())
 			.then(response => {
 
+				console.log(response)
+
 				let tipos = _.uniqBy(response, 'tipo').map(n => n.tipo).map(n => new cuadro_(n))
+
+
+				console.log(tipos)
 
 				var cuenta1 = 0
 				var	cuenta2 = 0
 				var algo = []
+				tipos.reverse()
+				response.reverse()
 
-				_.times(  response.length + (tipos.length / 2), (n) => {
+				console.log(response.length + (tipos.length))
 
-					if(n === 2){
+				_.times( (response.length * 2) + (tipos.length), (n) => {
+
+					if(n === 0){
 						algo.push(new texto_())
 					}
 
-					if((n % 2 ) === 0){
+					console.log('tiempo :' +  n)
 
+					if((n % 2 ) === 0){
+						console.log('cuenta1 :' + cuenta1)
+						console.log(response[cuenta1])
 						algo.push(response[cuenta1])
 						cuenta1++
 
 					}else{
+						console.log('cuenta2 :' + cuenta1)
+						console.log(tipos[cuenta2])
 						if(cuenta2 < tipos.length)
 							algo.push(tipos[cuenta2])
 							cuenta2++
 					}
 
 				})
+
+				console.log(algo)
 
 				this.items = algo
 
@@ -146,15 +162,11 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 		}
 
 		introducir(array){
-			console.log(array)
 			array.forEach(n => this.items.push(n))
 		}
 
 		tamano(){
-
-			console.log(Resolucion.obtener())
-
-			let resolucion = new Object({  xs : [ 6 , 6] , sm : [ 6 , 6], md : [ 6 , 8], lg : [ 6 , 6], xl : [ 6 , 6]   })[Resolucion.obtener()]
+			let resolucion = new Object({  xs : [ 6 , 6] , sm : [ 6 , 6], md : [ 6 , 8], lg : [ 5 , 6], xl : [ 6 , ]   })[Resolucion.obtener()]
 			let random = _.random(resolucion[0], resolucion[1])
 			return {
 				x : random - _.random(1, 3),
@@ -172,11 +184,7 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 				y : 2
 			}
 			switch (x) {
-				case 'salon':
-					this.color = '#3a512b '
-					this.nombre = 'Salones'
-					this.ir = () => $state.go('salones')
-					break;
+
 				case 'noticia':
 					this.color =   '#8e2f2e '
 					this.nombre = 'Noticias'
@@ -197,6 +205,11 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 					this.nombre = 'Eventos'
 					this.ir = () => $state.go('eventos')
 					break;
+				case 'salon':
+					this.color = '#3a512b '
+					this.nombre = 'Salones'
+					this.ir = () => $state.go('salones')
+					break;
 				default:
 
 			}
@@ -205,7 +218,8 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 
 	class modulo_ {
 		constructor(arg, nombre, servicio) {
-			this.tipo = nombre
+			this.tipo = _.deburr(nombre);
+			this.categoria = nombre
 			this.id = arg.id,
 			this.nombre = arg.nombre,
 			this.servicio = servicio
@@ -229,7 +243,14 @@ app.controller('homeCtrl', function($scope, $rootScope, $http, $mdDialog, mdDial
 				x : 2,
 				y : 4
 			}
-			this.descripcion = 'Bienvenido al Racquet Club'
+			this.descripcion = `<div class="texto">
+				<p> BIENVENIDO A LAS </p>
+				<h1> PALMAS RACQUET CLUB </h1>
+				<div class="texto-descripcion">
+					<p> Somos el primer club de tenis de Veracruz.</p>
+				</div>
+			</div>
+			`
 		}
 	}
 

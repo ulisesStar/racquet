@@ -12,8 +12,8 @@ var app = angular.module('myapp', [
     'material.components.expansionPanels',
     'textAngular',
     'md.data.table',
-    // 'angulartics',
-    // 'angulartics.google.tagmanager',
+    'angulartics',
+    'angulartics.google.tagmanager',
     // 'ui.calendar'
 ]);
 

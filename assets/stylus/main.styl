@@ -48,7 +48,7 @@ footer, header
 		.linea
 			&:first-child
 				border-left 1px solid rgba(216, 204, 110 .5) !important
-			border-right  1px solid rgba(216, 204, 110 .5 !important
+			border-right  1px solid rgba(216, 204, 110 .5) !important
 
 
 .lineas
@@ -203,6 +203,8 @@ md-sidenav
 		width 100%
 
 footer
+	z-index 10
+	position: relative;
 	background-color footerColor
 	.footer
 		@media mobile
@@ -304,6 +306,7 @@ footer
 							overflow hidden
 							&>*
 								transition(500ms , 0)
+
 							.capa
 								width 100%
 								height 100%
@@ -324,6 +327,10 @@ footer
 								justify-content center
 								h1
 									font-size 2vw
+								.descripcion
+									padding 0 40px
+									p
+										margin-left 1vw
 
 							.imagen
 								background-repeat no-repeat
@@ -332,7 +339,7 @@ footer
 
 							md-grid-tile-footer
 								bottom 0px
-								height 80px
+								height 90px
 								background-color inherit
 								display flex
 								justify-content flex-start
@@ -340,8 +347,11 @@ footer
 								opacity 1
 								padding 0 10px
 								z-index 3
+								h2
+									margin 0px
 								p
 									font-weight 800
+									margin 0px
 							.ir
 								position absolute
 								bottom 1px
@@ -394,37 +404,6 @@ footer
 
 					display flex
 					flex-direction row
-					.texto
-						justify-content: center;
-						align-items: flex-start;
-						display: flex;
-						flex-direction: column;
-						@media mobile
-							max-width 100%
-							max-height 40%
-						h1
-							@media mobile
-								font-size 40px
-							color black
-							font-size 80px
-							margin 0
-							font-weight 100
-						p
-							@media mobile
-								font-size 10px
-							font-size 20px
-							margin 0
-							margin-left 5vw
-							color gray
-						.texto-descripcion
-							@media mobile
-								width 100%
-							width 70%
-							p
-								font-size 16px
-								text-align justify
-								padding 10px
-
 					.slider-container
 
 						width 100%
@@ -1546,3 +1525,34 @@ footer
 				img
 					width 100%
 					height 100%
+
+.texto
+	justify-content: center;
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	@media mobile
+		max-width 100%
+		max-height 40%
+	h1
+		@media mobile
+			font-size 40px
+		color black
+		font-size 80px
+		margin 0
+		font-weight 100
+	p
+		@media mobile
+			font-size 10px
+		font-size 20px
+		margin 0
+		margin-left 5vw
+		color gray
+	.texto-descripcion
+		@media mobile
+			width 100%
+		width 70%
+		p
+			font-size 16px
+			text-align justify
+			padding 10px
