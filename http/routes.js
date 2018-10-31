@@ -1,8 +1,30 @@
 var express = require('express');
 var router = express.Router();
-
+var sm = require('sitemap')
 var jwt = require('jsonwebtoken');
 var secret  = 'ScarlettJohanson';
+
+var sitemap = sm.createSitemap ({
+    hostname: 'http://laspalmasracquet.com/',
+    cacheTime: 600000,
+    urls: [
+        { url: '/',  changefreq: 'daily', priority: 0.3 }
+    ]
+});
+
+
+
+router.get('/sitemap.xml', function(req, res) {
+    sitemap.toXML( function (err, xml) {
+      if (err) {
+        return res.status(500).end();
+      }
+      res.header('Content-Type', 'application/xml');
+      res.send( xml );
+    });
+});
+
+router.get('/robots.txt',  (req, res) => res.type('text/plain').send("User-agent: *\nAllow : /"))
 
 router.get("/", function(req, res) {
     res.render("main/layout");
